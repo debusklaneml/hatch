@@ -1,0 +1,58 @@
+TITLE: Monte Carlo Simulation of 3 factor SEWS - hCFA
+MONTECARLO:
+NAMES ARE S1 S2 S3 I1 I2 I3 C1 C2 C3; 
+NOBSERVATIONS = 300; !Sample Size
+NREPS = 1000; !Number of population replications
+SEED = 90210; !Random seed, default is 0 - Pick one
+Analysis: 
+estimator = MLR;
+process = 6 4;
+
+Model Population:
+
+SelR by S1-S3*.7;
+Idea by I1-I3*.7;
+Conv by C1-C3*.7;
+
+!Factor Means
+[SelR-Conv@0];
+
+!Factor Variances
+SelR-Conv*.4;
+
+!Item Residual Variances
+S1-C3*.35;
+
+!higher order factor (estimate loadings, fix mean = 0 & var = 1)
+h by SelR*.7 Idea*.7 Conv*.7;
+h@1;
+[h@0];
+
+Model:
+
+SelR by S1-S3*.7;
+Idea by I1-I3*.7;
+Conv by C1-C3*.7;
+
+!Factor Means
+[SelR-Conv@0];
+
+!Factor Variances
+SelR-Conv*.4;
+
+!Item Residual Variances
+S1-C3*.35;
+
+!higher order factor (estimate loadings, fix mean = 0 & var = 1)
+h by SelR*.7 Idea*.7 Conv*.7;
+h@1;
+[h@0];
+
+
+
+
+
+
+
+
+
