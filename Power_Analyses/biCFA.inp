@@ -1,0 +1,65 @@
+TITLE: Monte Carlo Simulation of 3 factor SEWS - biCFA
+MONTECARLO:
+NAMES ARE S1 S2 S3 I1 I2 I3 C1 C2 C3; 
+NOBSERVATIONS = 200; !Sample Size
+NREPS = 1000; !Number of population replications
+SEED = 90210; !Random seed, default is 0 - Pick one
+Analysis: 
+estimator = MLR;
+process = 6 4;
+
+MODEL POPULATION:
+!Factor Loadings
+Globe by S1-C3*.45;   
+
+SelR by S1-S3*.4;
+Idea by I1-I3*.4;
+Conv by C1-C3*.4;
+
+!Factor Variances
+Globe@1;
+
+SelR@1;
+IDea@1;
+Conv@1;
+
+!Item Residual Variances
+S1-C3*.35;
+
+!Factor Correlations/covariances
+Globe with SelR-Idea@0;
+SelR with Idea @0;
+SelR with Conv @0;
+Conv with Idea @0;
+
+
+model:
+!Factor Loadings
+!Factor Loadings
+Globe by S1-C3*.45;   
+
+SelR by S1-S3*.4;
+Idea by I1-I3*.4;
+Conv by C1-C3*.4;
+
+!Factor Variances
+Globe@1;
+
+SelR@1;
+IDea@1;
+Conv@1;
+
+!Item Residual Variances
+S1-C3*.35;
+
+!Factor Correlations/covariances
+Globe with SelR-Idea@0;
+SelR with Idea @0;
+SelR with Conv @0;
+Conv with Idea @0
+
+
+
+output:
+tech9;
+
