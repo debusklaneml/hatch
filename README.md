@@ -9,7 +9,8 @@ This repository will be used to store and present all applicable syntax for this
 2. RQ1 Analyses
 * EFA
  * CFA
-⋅⋅⋅* ESEM
+  
+ * ESEM
   * Hierarchical CFA
   * Bifactor CFA
   * Hierarchical ESEM
