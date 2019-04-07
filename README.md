@@ -4,21 +4,22 @@
 This repository will be used to store and present all applicable syntax for this project!
 
 ## Folders & Descriptions
-[Power Analyses](https://github.com/debusklaneml/hatch/tree/master/Power_Analyses)
+Power Analyses
+
 * [CFA](https://github.com/debusklaneml/hatch/blob/master/Power_Analyses/CFA.inp), [hierarchical CFA](https://github.com/debusklaneml/hatch/blob/master/Power_Analyses/hCFA.inp), and [bifactor CFA](https://github.com/debusklaneml/hatch/blob/master/Power_Analyses/biCFA.inp).
 
 RQ1: Are the items of the SEWS conceptually related across a priori factors?
 
-* EFA
-* CFA
-* ESEM
+* [EFA](https://github.com/debusklaneml/hatch/tree/master/RQ1/EFA)
+* [CFA](https://github.com/debusklaneml/hatch/tree/master/RQ1/CFA)
+* [ESEM](https://github.com/debusklaneml/hatch/tree/master/RQ1/ESEM)
 
 RQ2: Does the SEWS exhibit hierarchicall-ordered constructs?
 
-* Hierarchical CFA
-* Bifactor CFA
-* Hierarchical ESEM
-* Bifactor ESEM
+* [Hierarchical CFA](https://github.com/debusklaneml/hatch/tree/master/RQ2/hCFA)
+* [Bifactor CFA](https://github.com/debusklaneml/hatch/tree/master/RQ2/bCFA)
+* [Hierarchical ESEM](https://github.com/debusklaneml/hatch/tree/master/RQ2/hESEM)
+* [Bifactor ESEM](https://github.com/debusklaneml/hatch/tree/master/RQ2/bESEM)
   
 
 
