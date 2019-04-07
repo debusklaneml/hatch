@@ -1,5 +1,5 @@
 # Variable- and Person-centered Approaches to Examining Construct-Relevant Multidimensionality in Writing Self-efficacy  
-
+[Morgan L. DeBusk-Lane](http://www.mldebusklane.com)
 This repository will be used to store and present all applicable syntax for this project!
 
 ## Folders & Descriptions
