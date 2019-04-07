@@ -1,0 +1,70 @@
+TITLE: 4-Validate (fixed) bESEM LPA 
+DATA: FILE = "valid.besem.dat";
+VARIABLE: 
+NAMES = n se1 se2 se3 se4 se5 se6 se7 se8 se9 id female ethnic ell disability gifted
+     grade_level glob glob_se idea idea_se mech mech_se sr sr_se t_id; 
+MISSING=.;
+USEVARIABLES = idea mech sr glob;
+CLASSES = c (4);
+ANALYSIS: TYPE = MIXTURE;
+Starts = 0;
+Processors = 6 4;
+Model:
+ %OVERALL%
+
+     [ c#1@-1.36268 ];
+     [ c#2@-1.45743 ];
+     [ c#3@0.58907 ];
+
+     %C#1%
+
+     [ idea@0.06842 ];
+     [ mech@-0.64308 ];
+     [ sr@-0.27857 ];
+     [ glob@-1.34488 ];
+
+     idea@0.28759 (5);
+     mech@0.10915 (6);
+     sr@0.49036 (7);
+     glob@0.37402 (8);
+
+     %C#2%
+
+     [ idea@0.30349 ];
+     [ mech@-1.42125 ];
+     [ sr@0.41738 ];
+     [ glob@-0.23294 ];
+
+     idea@0.28759 (5);
+     mech@0.10915 (6);
+     sr@0.49036 (7);
+     glob@0.37402 (8);
+
+     %C#3%
+
+     [ idea@0.13987 ];
+     [ mech@-0.06092 ];
+     [ sr@0.10532 ];
+     [ glob@0.50848 ];
+
+     idea@0.28759 (5);
+     mech@0.10915 (6);
+     sr@0.49036 (7);
+     glob@0.37402 (8);
+
+     %C#4%
+
+     [ idea@-0.30232 ];
+     [ mech@0.35471 ];
+     [ sr@-0.15371 ];
+     [ glob@-0.53568 ];
+
+     idea@0.28759 (5);
+     mech@0.10915 (6);
+     sr@0.49036 (7);
+     glob@0.37402 (8);
+OUTPUT: 
+!TECH11; 
+!TECH14;
+!svalues;
+
