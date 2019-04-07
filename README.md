@@ -21,5 +21,10 @@ RQ2: Does the SEWS exhibit hierarchicall-ordered constructs?
 * [Hierarchical ESEM](https://github.com/debusklaneml/hatch/tree/master/RQ2/hESEM)
 * [Bifactor ESEM](https://github.com/debusklaneml/hatch/tree/master/RQ2/bESEM)
   
+RQ3: What specific quantitative profiles of writing self-efficacy emerge?
 
+RQ4: What forms of validity evidence is found for the profiles of the SEWS?
+RQ4a: Do the profiles exhibit concurrent validity evidence based on responses to the WSES?
+RQ4b: Do the profiles exhibit divergent/discriminant validity evidence based on responses to the Writing Apprehension Scale (WAS-12)?
+RQ4c: Do the profiles exhibit predictive validity?
 
