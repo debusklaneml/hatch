@@ -5,7 +5,14 @@ This repository will be used to store and present all applicable syntax for this
 
 ## Folders & Descriptions
 1. [Power Analyses](https://github.com/debusklaneml/hatch/tree/master/Power_Analyses)
-* [CFA](https://github.com/debusklaneml/hatch/blob/master/Power_Analyses/CFA.inp), [hierarchical CFA](https://github.com/debusklaneml/hatch/blob/master/Power_Analyses/hCFA.inp), and [bifactor CFA](https://github.com/debusklaneml/hatch/blob/master/Power_Analyses/biCFA.inp)
+* [CFA](https://github.com/debusklaneml/hatch/blob/master/Power_Analyses/CFA.inp), [hierarchical CFA](https://github.com/debusklaneml/hatch/blob/master/Power_Analyses/hCFA.inp), and [bifactor CFA](https://github.com/debusklaneml/hatch/blob/master/Power_Analyses/biCFA.inp).
 2. RQ1 Analyses
-  * EFA
-  * CFA
+* EFA
+ * CFA
+  * ESEM
+  * Hierarchical CFA
+  * Bifactor CFA
+  * Hierarchical ESEM
+  * Bifactor ESEM
+  
+
