@@ -1,0 +1,326 @@
+Mplus VERSION 8.1 (Mac)
+MUTHEN & MUTHEN
+04/06/2019   4:05 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: 3-Validate (fixed) CFA LPA
+  DATA: FILE = "valid.cfa.dat";
+  VARIABLE:
+  NAMES = n se1 se2 se3 se4 se5 se6 se7 se8 se9 id female ethnic ell disability gifted
+       grade_level idea idea_se mech mech_se sr sr_se t_id;
+  USEVARIABLES = idea mech sr;
+  MISSING=.;
+  CLASSES = c (3);
+  ANALYSIS: TYPE = MIXTURE;
+  Starts = 0;
+  Processors = 6 4;
+  Model:
+   %OVERALL%
+
+       [ c#1@0.15229 ];
+       [ c#2@0.88790 ];
+
+       %C#1%
+
+       [ idea@-0.85842 ];
+       [ mech@-0.82144 ];
+       [ sr@-0.85641 ];
+
+       idea@0.09887 (4);
+       mech@0.20914 (5);
+       sr@0.15480 (6);
+
+       %C#2%
+
+       [ idea@0.00591 ];
+       [ mech@0.00464 ];
+       [ sr@0.00303 ];
+
+       idea@0.09887 (4);
+       mech@0.20914 (5);
+       sr@0.15480 (6);
+
+       %C#3%
+
+       [ idea@0.85904 ];
+       [ mech@0.75068 ];
+       [ sr@0.92586 ];
+
+       idea@0.09887 (4);
+       mech@0.20914 (5);
+       sr@0.15480 (6);
+  OUTPUT:
+  !TECH11;
+  !TECH14;
+  !svalues;
+
+
+
+*** WARNING in ANALYSIS command
+  The second number in the PROCESSORS option will be ignored because no random
+  starts have been requested.
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+3-Validate (fixed) CFA LPA
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         716
+
+Number of dependent variables                                    3
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   IDEA        MECH        SR
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  valid.cfa.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           1
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              IDEA          MECH          SR
+              ________      ________      ________
+ IDEA           1.000
+ MECH           1.000         1.000
+ SR             1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     IDEA                  0.001      -0.121      -2.276    0.14%      -0.531     -0.175     -0.025
+             716.000       0.408      -0.269       1.305    2.51%       0.164      0.577
+     MECH                 -0.039      -0.400      -2.907    0.14%      -0.611     -0.172     -0.006
+             716.000       0.449       0.013       1.210    2.51%       0.177      0.565
+     SR                    0.002      -0.028      -2.169    0.14%      -0.598     -0.195      0.005
+             716.000       0.504      -0.254       1.540    2.51%       0.181      0.588
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        0
+
+Loglikelihood
+
+          H0 Value                       -1578.081
+
+Information Criteria
+
+          Akaike (AIC)                    3156.162
+          Bayesian (BIC)                  3156.162
+          Sample-Size Adjusted BIC        3156.162
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        181.47285          0.25345
+       2        378.68929          0.52890
+       3        155.83785          0.21765
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        164.55112          0.22982
+       2        392.60935          0.54834
+       3        158.83953          0.22184
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              163          0.22765
+       2              394          0.55028
+       3              159          0.22207
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.844
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3
+
+    1   0.916    0.084    0.000
+    2   0.039    0.932    0.029
+    3   0.000    0.072    0.928
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3
+
+    1   0.907    0.093    0.000
+    2   0.035    0.936    0.029
+    3   0.000    0.071    0.929
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3
+
+    1     13.718   11.442    0.000
+    2      0.181    3.465    0.000
+    3    -13.742   -2.566    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Means
+    IDEA              -0.858      0.000    999.000    999.000
+    MECH              -0.821      0.000    999.000    999.000
+    SR                -0.856      0.000    999.000    999.000
+
+ Variances
+    IDEA               0.099      0.000    999.000    999.000
+    MECH               0.209      0.000    999.000    999.000
+    SR                 0.155      0.000    999.000    999.000
+
+Latent Class 2
+
+ Means
+    IDEA               0.006      0.000    999.000    999.000
+    MECH               0.005      0.000    999.000    999.000
+    SR                 0.003      0.000    999.000    999.000
+
+ Variances
+    IDEA               0.099      0.000    999.000    999.000
+    MECH               0.209      0.000    999.000    999.000
+    SR                 0.155      0.000    999.000    999.000
+
+Latent Class 3
+
+ Means
+    IDEA               0.859      0.000    999.000    999.000
+    MECH               0.751      0.000    999.000    999.000
+    SR                 0.926      0.000    999.000    999.000
+
+ Variances
+    IDEA               0.099      0.000    999.000    999.000
+    MECH               0.209      0.000    999.000    999.000
+    SR                 0.155      0.000    999.000    999.000
+
+Categorical Latent Variables
+
+ Means
+    C#1                0.152      0.000    999.000    999.000
+    C#2                0.888      0.000    999.000    999.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.100E+01
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  16:05:10
+        Ending Time:  16:05:10
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen
