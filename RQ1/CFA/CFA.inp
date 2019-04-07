@@ -1,0 +1,48 @@
+Title: WMQ CFA 
+ 
+DATA: FILE = "raw.8.9.10.dat";
+VARIABLE: 
+NAMES = id female ethnic ell disability t_id gifted grade_level se1 se2 se3 se4 se5
+     se6 se7 se8 se9 wses1 wses5 wses8 wses2 wses6 wses3 wses10 wses7 wses4 wses9
+     was1 was3 was5 was11 was6 was7 was8 was4 was9 was2 was10 was12; 
+MISSING=.;
+  UseVariables = se1-se9;
+  Auxiliary = id-disability gifted grade_level;
+  Categorical = se1-se9;
+  Cluster = t_id;
+Analysis: 
+type =  complex;
+Estimator = WLSMV ;
+!Parameterization = Theta;
+Model:
+!factor by se1 se2 se3 se4 se5 se6 se7 se8 se9;
+idea by se2 se6 se7;
+mech by se1 se3 se5;
+sr by se4 se8 se9;
+!se1-se9;
+!glob@1;
+
+!idea@1;
+!mech@1;
+!sr@1;
+
+
+!glob with idea-sr@0;
+!idea with mech sr@0;
+!mech with idea sr@0;
+!sr with idea mech@0;
+
+
+Output: 
+Standardized;
+!Modindices;
+Savedata: 
+save = fscores;
+File = fscores.cfa.csv;
+
+
+!Output:
+!FSDETERMINACY;
+!FSCOEFFICIENT;
+!Tech10;
+!tech4;
