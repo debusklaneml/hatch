@@ -1,0 +1,41 @@
+Title: WMQ hESEM 
+ 
+DATA: FILE = "raw.8.9.10.dat";
+VARIABLE: 
+NAMES = id female ethnic ell disability t_id gifted grade_level se1 se2 se3 se4 se5
+     se6 se7 se8 se9 wses1 wses5 wses8 wses2 wses6 wses3 wses10 wses7 wses4 wses9
+     was1 was3 was5 was11 was6 was7 was8 was4 was9 was2 was10 was12; 
+MISSING=.;
+  UseVariables = se1-se9;
+  !Auxiliary = id-y2_q3_grade;
+  Categorical = se1-se9;
+  Cluster = t_id;
+Analysis: 
+Type = complex;
+Estimator = WLSMV;
+!Rotation = target ;
+Model:
+idea BY se2*0.55078; idea BY se6*0.90822; idea BY se7@0.71708; 
+idea BY se1*0.17484; idea BY se3*0.00990; idea BY se5@-0.11908;
+idea BY se4*0.14288; idea BY se8*-0.19116; idea BY se9@0.20600;
+mech BY se1*0.72113; mech BY se3*0.71170; mech BY se5@0.59867;
+mech BY se2*0.31499; mech BY se6*-0.15054; mech BY se7@0.04906;
+mech BY se4*0.00139; mech BY se8*0.00438; mech BY se9@0.01145;
+sr BY se4*0.67612; sr BY se8*0.97449; sr BY se9@0.59995;
+sr BY se2*-0.00349;sr BY se6*0.03522; sr BY se7@0.12380;
+sr BY se1*-0.02200; sr BY se3*0.02118; sr BY se5@0.09434;
+idea*1;
+mech*1;
+sr*1;
+hf by idea*1 mech sr;
+hf@1;
+
+Output: 
+Standardized;
+!Savedata: 
+!File = fscores.csv;
+!save = fscores;
+
+!Output:
+!FSDETERMINACY;
+!FSCOEFFICIENT;
