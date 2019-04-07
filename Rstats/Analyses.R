@@ -54,11 +54,6 @@ hCFAsummary <- hCFAsummary %>%
   clean_names() %>%
   select(title, parameters, chi_sq_m_value, chi_sq_m_df, cfi, tli, rmsea_estimate, rmsea_90ci_lb, rmsea_90ci_ub, rmsea_p_lt05, srmr)
 write_csv(hCFAsummary, "/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/4.hCFA/hCFAsummary.csv")
-  
-
-
-
-
 
 #ESEM Model----
 runModels("/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/3.ESEM", showOutput = TRUE)
@@ -69,7 +64,6 @@ ESEMsummary <- ESEMsummary %>%
   select(title, parameters, chi_sq_m_value, chi_sq_m_df, cfi, tli, rmsea_estimate, rmsea_90ci_lb, rmsea_90ci_ub, rmsea_p_lt05, srmr)
 write_csv(ESEMsummary, "/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/3.ESEM/ESEMsummary.csv")
 
-
 #hESEM Model----
 runModels("/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/6.hESEM", showOutput = TRUE)
 hESEMoutput <- readModels("/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/6.hESEM")
@@ -78,13 +72,6 @@ hESEMsummary <- hESEMsummary %>%
   clean_names() %>%
   select(title, parameters, chi_sq_m_value, chi_sq_m_df, cfi, tli, rmsea_estimate, rmsea_90ci_lb, rmsea_90ci_ub, rmsea_p_lt05, srmr)
 write_csv(hESEMsummary, "/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/6.hESEM/hESEMsummary.csv")
-
-
-
-
-
-
-
 
 #bCFA Model----
 runModels("/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/5.bCFA", showOutput =TRUE)
@@ -95,7 +82,6 @@ bCFAsummary <- bCFAsummary %>%
   select(title, parameters, chi_sq_m_value, chi_sq_m_df, cfi, tli, rmsea_estimate, rmsea_90ci_lb, rmsea_90ci_ub, rmsea_p_lt05, srmr)
 write_csv(bCFAsummary, "/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/5.bCFA/bCFAsummary.csv")
 
-
 #bESEM Model----
 runModels("/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/7.bESEM", showOutput = TRUE)
 bESEMoutput <- readModels("/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/7.bESEM")
@@ -105,9 +91,6 @@ bESEMsummary <- bESEMsummary %>%
   select(title, parameters, chi_sq_m_value, chi_sq_m_df, cfi, tli, rmsea_estimate, rmsea_90ci_lb, rmsea_90ci_ub, rmsea_p_lt05, srmr)
 write_csv(bESEMsummary, "/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/Models/7.bESEM/bESEMsummary.csv")
 
-
-
-
 #Compare Models----
 Model.Comparisions.all <- bind_rows(EFAsummary, CFAsummary, hCFAsummary, bCFAsummary, ESEMsummary, hESEMsummary, bESEMsummary) %>%
   select(-aic, -bic, -a_bic)
@@ -116,8 +99,6 @@ write_csv(Model.Comparisions.all, "/Users/morganldebusk-lane/Dropbox/Hatch/Chapt
 #RQ1 & RQ2 Parameter Estimates----
 CFApe <- CFAoutput$parameters$stdyx.standardized
 write_csv(CFApe, "/Users/morganldebusk-lane/Dropbox/Hatch/Chapter 4/CFApe.csv")
-ESEMpe <- ESEMoutput$parameters$stdyx.standardized
-write_csv(ESEMpe, "/Users/morganldebusk-lane/Dropbox/Hatch/Chapter 4/ESEMpe.csv")
 bESEMpe <- bESEMoutput$parameters$stdyx.standardized
 write_csv(bESEMpe, "/Users/morganldebusk-lane/Dropbox/Hatch/Chapter 4/bESEMpe.csv")
 
@@ -128,7 +109,6 @@ calibrate.cfa.output <- readModels("/Users/morganldebusk-lane/Dropbox/Hatch/Anal
 HTMLSummaryTable(calibrate.cfa.output, keepCols = c("Title", "LL", "Observations", "Parameters", "AIC", "BIC", "aBIC", "BLRT_2xLLDiff", "BLRT_PValue",
                                       "T11_VLMR_2xLLDiff", "T11_VLMR_PValue", "Entropy"), sortBy = "Parameters", 
                  filename = "/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/LPA/Enumeration/CFA/Calibrate/calibrate.cfa.html")
-
 
 # createModels("iterate.test.cfa.txt")
 runModels("/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/LPA/Enumeration/CFA/Validate", showOutput = T)
