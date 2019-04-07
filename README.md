@@ -5,5 +5,5 @@ This repository will be used to store and present all applicable syntax for this
 ## Folders & Descriptions
 1. Power Analyses
 2. RQ1 Analyses
-... 1. EFA
-... 2. CFA
+  * EFA
+  * CFA
