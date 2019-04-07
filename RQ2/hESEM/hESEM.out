@@ -1,0 +1,599 @@
+Mplus VERSION 8.1 (Mac)
+MUTHEN & MUTHEN
+04/07/2019   8:02 AM
+
+INPUT INSTRUCTIONS
+
+  Title: WMQ hESEM
+
+  DATA: FILE = "raw.8.9.10.dat";
+  VARIABLE:
+  NAMES = id female ethnic ell disability t_id gifted grade_level se1 se2 se3 se4 se5
+       se6 se7 se8 se9 wses1 wses5 wses8 wses2 wses6 wses3 wses10 wses7 wses4 wses9
+       was1 was3 was5 was11 was6 was7 was8 was4 was9 was2 was10 was12;
+  MISSING=.;
+    UseVariables = se1-se9;
+    !Auxiliary = id-y2_q3_grade;
+    Categorical = se1-se9;
+    Cluster = t_id;
+  Analysis:
+  Type = complex;
+  Estimator = WLSMV;
+  !Rotation = target ;
+  Model:
+  idea BY se2*0.55078; idea BY se6*0.90822; idea BY se7@0.71708;
+  idea BY se1*0.17484; idea BY se3*0.00990; idea BY se5@-0.11908;
+  idea BY se4*0.14288; idea BY se8*-0.19116; idea BY se9@0.20600;
+  mech BY se1*0.72113; mech BY se3*0.71170; mech BY se5@0.59867;
+  mech BY se2*0.31499; mech BY se6*-0.15054; mech BY se7@0.04906;
+  mech BY se4*0.00139; mech BY se8*0.00438; mech BY se9@0.01145;
+  sr BY se4*0.67612; sr BY se8*0.97449; sr BY se9@0.59995;
+  sr BY se2*-0.00349;sr BY se6*0.03522; sr BY se7@0.12380;
+  sr BY se1*-0.02200; sr BY se3*0.02118; sr BY se5@0.09434;
+  idea*1;
+  mech*1;
+  sr*1;
+  hf by idea*1 mech sr;
+  hf@1;
+
+  Output:
+  Standardized;
+  !Savedata:
+  !File = fscores.csv;
+  !save = fscores;
+
+  !Output:
+  !FSDETERMINACY;
+  !FSCOEFFICIENT;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+WMQ hESEM
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1430
+
+Number of dependent variables                                    9
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   SE1         SE2         SE3         SE4         SE5         SE6
+   SE7         SE8         SE9
+
+Continuous latent variables
+   IDEA        MECH        SR          HF
+
+Variables with special functions
+
+  Cluster variable      T_ID
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  raw.8.9.10.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters          39
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              SE1           SE2           SE3           SE4           SE5
+              ________      ________      ________      ________      ________
+ SE1            1.000
+ SE2            1.000         1.000
+ SE3            1.000         1.000         1.000
+ SE4            1.000         1.000         1.000         1.000
+ SE5            1.000         1.000         1.000         1.000         1.000
+ SE6            1.000         1.000         1.000         1.000         1.000
+ SE7            1.000         1.000         1.000         1.000         1.000
+ SE8            1.000         1.000         1.000         1.000         1.000
+ SE9            1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              SE6           SE7           SE8           SE9
+              ________      ________      ________      ________
+ SE6            1.000
+ SE7            1.000         1.000
+ SE8            1.000         1.000         1.000
+ SE9            1.000         1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    SE1
+      Category 1    0.003            4.000
+      Category 2    0.025           36.000
+      Category 3    0.165          236.000
+      Category 4    0.807         1154.000
+    SE2
+      Category 1    0.017           25.000
+      Category 2    0.131          188.000
+      Category 3    0.469          670.000
+      Category 4    0.383          547.000
+    SE3
+      Category 1    0.013           18.000
+      Category 2    0.103          148.000
+      Category 3    0.397          567.000
+      Category 4    0.487          697.000
+    SE4
+      Category 1    0.080          114.000
+      Category 2    0.303          434.000
+      Category 3    0.412          589.000
+      Category 4    0.205          293.000
+    SE5
+      Category 1    0.029           42.000
+      Category 2    0.132          189.000
+      Category 3    0.408          584.000
+      Category 4    0.430          615.000
+    SE6
+      Category 1    0.050           72.000
+      Category 2    0.213          304.000
+      Category 3    0.430          615.000
+      Category 4    0.307          439.000
+    SE7
+      Category 1    0.031           44.000
+      Category 2    0.169          242.000
+      Category 3    0.420          601.000
+      Category 4    0.380          543.000
+    SE8
+      Category 1    0.157          224.000
+      Category 2    0.336          480.000
+      Category 3    0.373          534.000
+      Category 4    0.134          192.000
+    SE9
+      Category 1    0.121          173.000
+      Category 2    0.359          514.000
+      Category 3    0.378          540.000
+      Category 4    0.142          203.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       51
+
+Chi-Square Test of Model Fit
+
+          Value                             27.103*
+          Degrees of Freedom                    12
+          P-Value                           0.0075
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.030
+          90 Percent C.I.                    0.015  0.045
+          Probability RMSEA <= .05           0.989
+
+CFI/TLI
+
+          CFI                                0.998
+          TLI                                0.995
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           8408.822
+          Degrees of Freedom                    36
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.012
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.39606527D-02
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IDEA     BY
+    SE2                0.550      0.055     10.013      0.000
+    SE6                0.908      0.092      9.820      0.000
+    SE7                0.717      0.000    999.000    999.000
+    SE1                0.175      0.071      2.474      0.013
+    SE3                0.011      0.081      0.131      0.896
+    SE5               -0.119      0.000    999.000    999.000
+    SE4                0.143      0.050      2.840      0.005
+    SE8               -0.191      0.082     -2.343      0.019
+    SE9                0.206      0.000    999.000    999.000
+
+ MECH     BY
+    SE1                0.721      0.070     10.328      0.000
+    SE3                0.711      0.076      9.348      0.000
+    SE5                0.599      0.000    999.000    999.000
+    SE2                0.315      0.052      6.104      0.000
+    SE6               -0.150      0.058     -2.599      0.009
+    SE7                0.049      0.000    999.000    999.000
+    SE4                0.001      0.040      0.037      0.970
+    SE8                0.005      0.055      0.082      0.935
+    SE9                0.011      0.000    999.000    999.000
+
+ SR       BY
+    SE4                0.676      0.048     14.171      0.000
+    SE8                0.975      0.091     10.769      0.000
+    SE9                0.600      0.000    999.000    999.000
+    SE2               -0.003      0.060     -0.053      0.958
+    SE6                0.035      0.067      0.528      0.598
+    SE7                0.124      0.000    999.000    999.000
+    SE1               -0.022      0.083     -0.266      0.790
+    SE3                0.021      0.071      0.292      0.771
+    SE5                0.094      0.000    999.000    999.000
+
+ HF       BY
+    IDEA               0.910      0.066     13.721      0.000
+    MECH               0.561      0.055     10.228      0.000
+    SR                 0.792      0.056     14.044      0.000
+
+ Thresholds
+    SE1$1             -2.771      0.153    -18.126      0.000
+    SE1$2             -1.911      0.092    -20.811      0.000
+    SE1$3             -0.867      0.074    -11.777      0.000
+    SE2$1             -2.109      0.083    -25.405      0.000
+    SE2$2             -1.041      0.049    -21.274      0.000
+    SE2$3              0.299      0.047      6.418      0.000
+    SE3$1             -2.239      0.103    -21.731      0.000
+    SE3$2             -1.195      0.070    -17.130      0.000
+    SE3$3              0.032      0.055      0.574      0.566
+    SE4$1             -1.407      0.037    -37.997      0.000
+    SE4$2             -0.297      0.035     -8.554      0.000
+    SE4$3              0.824      0.049     16.722      0.000
+    SE5$1             -1.890      0.084    -22.506      0.000
+    SE5$2             -0.988      0.047    -20.812      0.000
+    SE5$3              0.176      0.047      3.783      0.000
+    SE6$1             -1.641      0.063    -25.943      0.000
+    SE6$2             -0.634      0.038    -16.771      0.000
+    SE6$3              0.504      0.041     12.171      0.000
+    SE7$1             -1.870      0.077    -24.239      0.000
+    SE7$2             -0.842      0.045    -18.750      0.000
+    SE7$3              0.306      0.042      7.265      0.000
+    SE8$1             -1.008      0.042    -23.906      0.000
+    SE8$2             -0.019      0.035     -0.552      0.581
+    SE8$3              1.106      0.055     20.178      0.000
+    SE9$1             -1.170      0.042    -27.799      0.000
+    SE9$2             -0.049      0.043     -1.147      0.251
+    SE9$3              1.072      0.051     21.038      0.000
+
+ Variances
+    HF                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    IDEA               0.173      0.140      1.234      0.217
+    MECH               0.685      0.104      6.573      0.000
+    SR                 0.372      0.100      3.720      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IDEA     BY
+    SE2                0.550      0.051     10.881      0.000
+    SE6                0.908      0.079     11.424      0.000
+    SE7                0.717      0.016     45.492      0.000
+    SE1                0.175      0.071      2.454      0.014
+    SE3                0.011      0.081      0.131      0.896
+    SE5               -0.119      0.003    -45.492      0.000
+    SE4                0.143      0.050      2.841      0.005
+    SE8               -0.191      0.081     -2.358      0.018
+    SE9                0.206      0.005     45.492      0.000
+
+ MECH     BY
+    SE1                0.721      0.056     12.920      0.000
+    SE3                0.711      0.052     13.683      0.000
+    SE5                0.599      0.032     18.584      0.000
+    SE2                0.315      0.046      6.811      0.000
+    SE6               -0.150      0.058     -2.612      0.009
+    SE7                0.049      0.003     18.584      0.000
+    SE4                0.001      0.040      0.037      0.970
+    SE8                0.005      0.055      0.082      0.935
+    SE9                0.011      0.001     18.584      0.000
+
+ SR       BY
+    SE4                0.676      0.043     15.784      0.000
+    SE8                0.975      0.074     13.239      0.000
+    SE9                0.600      0.017     34.602      0.000
+    SE2               -0.003      0.060     -0.053      0.958
+    SE6                0.035      0.067      0.525      0.600
+    SE7                0.124      0.004     34.602      0.000
+    SE1               -0.022      0.082     -0.266      0.790
+    SE3                0.021      0.071      0.292      0.771
+    SE5                0.094      0.003     34.602      0.000
+
+ HF       BY
+    IDEA               0.909      0.075     12.170      0.000
+    MECH               0.561      0.053     10.619      0.000
+    SR                 0.793      0.058     13.647      0.000
+
+ Thresholds
+    SE1$1             -2.771      0.153    -18.126      0.000
+    SE1$2             -1.911      0.092    -20.811      0.000
+    SE1$3             -0.867      0.074    -11.777      0.000
+    SE2$1             -2.109      0.083    -25.405      0.000
+    SE2$2             -1.041      0.049    -21.274      0.000
+    SE2$3              0.299      0.047      6.418      0.000
+    SE3$1             -2.239      0.103    -21.731      0.000
+    SE3$2             -1.195      0.070    -17.130      0.000
+    SE3$3              0.032      0.055      0.574      0.566
+    SE4$1             -1.407      0.037    -37.997      0.000
+    SE4$2             -0.297      0.035     -8.554      0.000
+    SE4$3              0.824      0.049     16.722      0.000
+    SE5$1             -1.890      0.084    -22.506      0.000
+    SE5$2             -0.988      0.047    -20.812      0.000
+    SE5$3              0.176      0.047      3.783      0.000
+    SE6$1             -1.641      0.063    -25.943      0.000
+    SE6$2             -0.634      0.038    -16.771      0.000
+    SE6$3              0.504      0.041     12.171      0.000
+    SE7$1             -1.870      0.077    -24.239      0.000
+    SE7$2             -0.842      0.045    -18.750      0.000
+    SE7$3              0.306      0.042      7.265      0.000
+    SE8$1             -1.008      0.042    -23.906      0.000
+    SE8$2             -0.019      0.035     -0.552      0.581
+    SE8$3              1.106      0.055     20.178      0.000
+    SE9$1             -1.170      0.042    -27.799      0.000
+    SE9$2             -0.049      0.043     -1.147      0.251
+    SE9$3              1.072      0.051     21.038      0.000
+
+ Variances
+    HF                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    IDEA               0.173      0.136      1.272      0.203
+    MECH               0.685      0.059     11.539      0.000
+    SR                 0.372      0.092      4.041      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IDEA     BY
+    SE2                0.550      0.051     10.881      0.000
+    SE6                0.908      0.079     11.424      0.000
+    SE7                0.717      0.016     45.492      0.000
+    SE1                0.175      0.071      2.454      0.014
+    SE3                0.011      0.081      0.131      0.896
+    SE5               -0.119      0.003    -45.492      0.000
+    SE4                0.143      0.050      2.841      0.005
+    SE8               -0.191      0.081     -2.358      0.018
+    SE9                0.206      0.005     45.492      0.000
+
+ MECH     BY
+    SE1                0.721      0.056     12.920      0.000
+    SE3                0.711      0.052     13.683      0.000
+    SE5                0.599      0.032     18.584      0.000
+    SE2                0.315      0.046      6.811      0.000
+    SE6               -0.150      0.058     -2.612      0.009
+    SE7                0.049      0.003     18.584      0.000
+    SE4                0.001      0.040      0.037      0.970
+    SE8                0.005      0.055      0.082      0.935
+    SE9                0.011      0.001     18.584      0.000
+
+ SR       BY
+    SE4                0.676      0.043     15.784      0.000
+    SE8                0.975      0.074     13.239      0.000
+    SE9                0.600      0.017     34.602      0.000
+    SE2               -0.003      0.060     -0.053      0.958
+    SE6                0.035      0.067      0.525      0.600
+    SE7                0.124      0.004     34.602      0.000
+    SE1               -0.022      0.082     -0.266      0.790
+    SE3                0.021      0.071      0.292      0.771
+    SE5                0.094      0.003     34.602      0.000
+
+ HF       BY
+    IDEA               0.909      0.075     12.170      0.000
+    MECH               0.561      0.053     10.619      0.000
+    SR                 0.793      0.058     13.647      0.000
+
+ Thresholds
+    SE1$1             -2.771      0.153    -18.126      0.000
+    SE1$2             -1.911      0.092    -20.811      0.000
+    SE1$3             -0.867      0.074    -11.777      0.000
+    SE2$1             -2.109      0.083    -25.405      0.000
+    SE2$2             -1.041      0.049    -21.274      0.000
+    SE2$3              0.299      0.047      6.418      0.000
+    SE3$1             -2.239      0.103    -21.731      0.000
+    SE3$2             -1.195      0.070    -17.130      0.000
+    SE3$3              0.032      0.055      0.574      0.566
+    SE4$1             -1.407      0.037    -37.997      0.000
+    SE4$2             -0.297      0.035     -8.554      0.000
+    SE4$3              0.824      0.049     16.722      0.000
+    SE5$1             -1.890      0.084    -22.506      0.000
+    SE5$2             -0.988      0.047    -20.812      0.000
+    SE5$3              0.176      0.047      3.783      0.000
+    SE6$1             -1.641      0.063    -25.943      0.000
+    SE6$2             -0.634      0.038    -16.771      0.000
+    SE6$3              0.504      0.041     12.171      0.000
+    SE7$1             -1.870      0.077    -24.239      0.000
+    SE7$2             -0.842      0.045    -18.750      0.000
+    SE7$3              0.306      0.042      7.265      0.000
+    SE8$1             -1.008      0.042    -23.906      0.000
+    SE8$2             -0.019      0.035     -0.552      0.581
+    SE8$3              1.106      0.055     20.178      0.000
+    SE9$1             -1.170      0.042    -27.799      0.000
+    SE9$2             -0.049      0.043     -1.147      0.251
+    SE9$3              1.072      0.051     21.038      0.000
+
+ Variances
+    HF                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    IDEA               0.173      0.136      1.272      0.203
+    MECH               0.685      0.059     11.539      0.000
+    SR                 0.372      0.092      4.041      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ IDEA     BY
+    SE2                0.550      0.051     10.881      0.000
+    SE6                0.908      0.079     11.424      0.000
+    SE7                0.717      0.016     45.492      0.000
+    SE1                0.175      0.071      2.454      0.014
+    SE3                0.011      0.081      0.131      0.896
+    SE5               -0.119      0.003    -45.492      0.000
+    SE4                0.143      0.050      2.841      0.005
+    SE8               -0.191      0.081     -2.358      0.018
+    SE9                0.206      0.005     45.492      0.000
+
+ MECH     BY
+    SE1                0.721      0.056     12.920      0.000
+    SE3                0.711      0.052     13.683      0.000
+    SE5                0.599      0.032     18.584      0.000
+    SE2                0.315      0.046      6.811      0.000
+    SE6               -0.150      0.058     -2.612      0.009
+    SE7                0.049      0.003     18.584      0.000
+    SE4                0.001      0.040      0.037      0.970
+    SE8                0.005      0.055      0.082      0.935
+    SE9                0.011      0.001     18.584      0.000
+
+ SR       BY
+    SE4                0.676      0.043     15.784      0.000
+    SE8                0.975      0.074     13.239      0.000
+    SE9                0.600      0.017     34.602      0.000
+    SE2               -0.003      0.060     -0.053      0.958
+    SE6                0.035      0.067      0.525      0.600
+    SE7                0.124      0.004     34.602      0.000
+    SE1               -0.022      0.082     -0.266      0.790
+    SE3                0.021      0.071      0.292      0.771
+    SE5                0.094      0.003     34.602      0.000
+
+ HF       BY
+    IDEA               0.909      0.075     12.170      0.000
+    MECH               0.561      0.053     10.619      0.000
+    SR                 0.793      0.058     13.647      0.000
+
+ Thresholds
+    SE1$1             -2.771      0.153    -18.126      0.000
+    SE1$2             -1.911      0.092    -20.811      0.000
+    SE1$3             -0.867      0.074    -11.777      0.000
+    SE2$1             -2.109      0.083    -25.405      0.000
+    SE2$2             -1.041      0.049    -21.274      0.000
+    SE2$3              0.299      0.047      6.418      0.000
+    SE3$1             -2.239      0.103    -21.731      0.000
+    SE3$2             -1.195      0.070    -17.130      0.000
+    SE3$3              0.032      0.055      0.574      0.566
+    SE4$1             -1.407      0.037    -37.997      0.000
+    SE4$2             -0.297      0.035     -8.554      0.000
+    SE4$3              0.824      0.049     16.722      0.000
+    SE5$1             -1.890      0.084    -22.506      0.000
+    SE5$2             -0.988      0.047    -20.812      0.000
+    SE5$3              0.176      0.047      3.783      0.000
+    SE6$1             -1.641      0.063    -25.943      0.000
+    SE6$2             -0.634      0.038    -16.771      0.000
+    SE6$3              0.504      0.041     12.171      0.000
+    SE7$1             -1.870      0.077    -24.239      0.000
+    SE7$2             -0.842      0.045    -18.750      0.000
+    SE7$3              0.306      0.042      7.265      0.000
+    SE8$1             -1.008      0.042    -23.906      0.000
+    SE8$2             -0.019      0.035     -0.552      0.581
+    SE8$3              1.106      0.055     20.178      0.000
+    SE9$1             -1.170      0.042    -27.799      0.000
+    SE9$2             -0.049      0.043     -1.147      0.251
+    SE9$3              1.072      0.051     21.038      0.000
+
+ Variances
+    HF                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    IDEA               0.173      0.136      1.272      0.203
+    MECH               0.685      0.059     11.539      0.000
+    SR                 0.372      0.092      4.041      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    SE1                0.660      0.054     12.271      0.000      0.340
+    SE2                0.576      0.027     21.239      0.000      0.424
+    SE3                0.528      0.044     12.052      0.000      0.472
+    SE4                0.618      0.025     24.470      0.000      0.382
+    SE5                0.343      0.039      8.833      0.000      0.657
+    SE6                0.750      0.041     18.377      0.000      0.250
+    SE7                0.701      0.022     32.108      0.000      0.299
+    SE8                0.721      0.041     17.428      0.000      0.279
+    SE9                0.589      0.022     27.111      0.000      0.411
+
+     Latent                                         Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    IDEA               0.827      0.136      6.085      0.000
+    MECH               0.315      0.059      5.310      0.000
+    SR                 0.628      0.092      6.824      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.281E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  08:02:19
+        Ending Time:  08:02:20
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen
