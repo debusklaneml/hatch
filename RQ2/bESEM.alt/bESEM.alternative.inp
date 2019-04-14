@@ -1,0 +1,50 @@
+Title: WMQ bESEM
+DATA: FILE = "raw.8.9.10.dat";
+VARIABLE: 
+NAMES = id female ethnic ell disability t_id gifted grade_level se1 se2 se3 se4 se5
+     se6 se7 se8 se9 wses1 wses5 wses8 wses2 wses6 wses3 wses10 wses7 wses4 wses9
+     was1 was3 was5 was11 was6 was7 was8 was4 was9 was2 was10 was12 test_score mark; 
+MISSING=.;
+  UseVariables = se2-se9;
+  Auxiliary = id-disability gifted grade_level test_score mark;
+   Categorical = se2-se9;
+   Cluster = t_id;
+Analysis: 
+Type = complex;
+Estimator = wlsmv;
+!PARAMETERIZATION = THETA;
+!starts = 10;
+!ITERATIONS = 6000;
+Rotation = target (orthogonal);
+Model:
+glob by 	se2 se6 se7
+	se3 se5
+	se4 se8 se9 (*1);
+
+idea by 	se2 se6 se7
+	se3~0 se5~0
+	se4~0 se8~0 se9~0 (*1);
+	
+mech by 	se3 se5
+	se2~0 se6~0 se7~0
+	se4~0 se8~0 se9~0 (*1);
+	
+sr by 	se4 se8 se9
+	se2~0 se6~0 se7~0
+	se3~0 se5~0 (*1);
+
+	
+!se1@.00001;
+!se1-se9 (s1-s9);
+!MODEL CONSTRAINT:
+!s3;
+!0 < s5;
+
+Output:
+modindices;
+tech4;
+stdyx;
+
+SaveData:
+save = fscores;
+file = fscores.besem.alt.csv;
