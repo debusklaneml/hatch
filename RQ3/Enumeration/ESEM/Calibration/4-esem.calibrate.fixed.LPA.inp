@@ -1,0 +1,62 @@
+TITLE: 4-Calibrate (fixed) ESEM LPA 
+DATA: FILE = "calib.esem.dat";
+VARIABLE: 
+NAMES = id se1 se2 se3 se4 se5 se6 se7 se8 se9 female ethnic ell disability gifted
+     grade_level test_score mark idea idea_se mech mech_se sr sr_se t_id minority bs
+     as affect concern; 
+MISSING=.;
+USEVARIABLES = idea mech sr;
+CLASSES = c (4);
+ANALYSIS: TYPE = MIXTURE;
+Starts = 0;
+Processors = 6 4;
+Model:
+ %OVERALL%
+
+     [ c#1@0.93597 ];
+     [ c#2@0.83961 ];
+     [ c#3@0.11247 ];
+
+     %C#1%
+
+     [ idea@-0.38888 ];
+     [ mech@-0.18996 ];
+     [ sr@-0.38777 ];
+
+     idea@0.14761 (4);
+     mech@0.32111 (5);
+     sr@0.22145 (6);
+
+     %C#2%
+
+     [ idea@0.43086 ];
+     [ mech@0.25682 ];
+     [ sr@0.36157 ];
+
+     idea@0.14761 (4);
+     mech@0.32111 (5);
+     sr@0.22145 (6);
+
+     %C#3%
+
+     [ idea@-1.30347 ];
+     [ mech@-0.93690 ];
+     [ sr@-1.18869 ];
+
+     idea@0.14761 (4);
+     mech@0.32111 (5);
+     sr@0.22145 (6);
+
+     %C#4%
+
+     [ idea@1.26688 ];
+     [ mech@0.87198 ];
+     [ sr@1.25846 ];
+
+     idea@0.14761 (4);
+     mech@0.32111 (5);
+     sr@0.22145 (6);
+OUTPUT: 
+!TECH11; 
+!TECH14;
+svalues;
