@@ -26,6 +26,8 @@ RQ3: What specific quantitative profiles of writing self-efficacy emerge?
 * [Enumeration](https://github.com/debusklaneml/hatch/tree/master/RQ3/Enumeration)
 * [Final CFA/ESEM/bESEM.alt LPA Models](https://github.com/debusklaneml/hatch/tree/master/RQ3/Full.Sample)
 
+You may find enumeration visualizations [HERE](debusklaneml.github.io).
+
 RQ4: What forms of validity evidence is found for the profiles of the SEWS?
 
 RQ4a: Do the profiles exhibit concurrent validity evidence based on responses to the WSES?
@@ -39,4 +41,7 @@ RQ4b: Do the profiles exhibit divergent/discriminant validity evidence based on 
 RQ4c: Do the profiles exhibit predictive validity?
 
 * [All CFA/ESEM/bESEM Final Models w/ Outcomes](https://github.com/debusklaneml/hatch/tree/master/RQ4/Predictors.Outcomes)
+
+All Applicable R code can be found [HERE](https://github.com/debusklaneml/hatch/tree/master/Rstats)
+
 
