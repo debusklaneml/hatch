@@ -1,0 +1,736 @@
+Mplus VERSION 8.1 (Mac)
+MUTHEN & MUTHEN
+04/11/2019   8:27 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: bESEM Multi-Group Configural
+  DATA: FILE = "besem.alt.mg.lpa.dat";
+  VARIABLE:
+  NAMES = i id se2 se3 se4 se5 se6 se7 se8 se9 female ethnic ell disability gifted
+       grade_level test_score mark glob glob_se idea idea_se mech mech_se sr sr_se
+       t_id minority bs as affect concern perf_level writing_tot writing_cat1
+       writing_cat2;
+  MISSING=.;
+  Usevariables = glob idea mech sr;
+  knownclass = cg(i = 1 i = 2);
+  classes = cg (2) c(3);
+  Cluster = t_id;
+  Analysis:
+  Processor = 6 4;
+  Type = Mixture complex;
+  Starts = 750 250;
+  Model:
+  %OVERALL%
+
+  c#1 on cg#1;
+  c#2 on cg#1;
+  !c#3 on cg#1;
+  !c#4 on cg#1;
+
+  %cg#1.c#1%
+  [glob idea mech sr] (m1-m4);
+  glob idea mech sr (v1-v4);
+  %cg#1.c#2%
+  [glob idea mech sr] (m5-m8);
+  glob idea mech sr (v1-v4);
+  %cg#1.c#3%
+  [glob idea mech sr] (m9-m12);
+  glob idea mech sr(v1-v4);
+  !%cg#1.c#4%
+  ![glob idea mech sr] (m13-m16);
+  !glob idea mech sr (v1-v4);
+  !%cg#1.c#5%
+  ![glob idea mech sr] (m17-m20);
+  !glob idea mech sr (v1-v4);
+  %cg#2.c#1%
+  [glob idea mech sr] (dm1-dm4);
+  glob idea mech sr (dv1-dv4);
+  %cg#2.c#2%
+  [glob idea mech sr] (dm5-dm8);
+  glob idea mech sr (dv1-dv4);
+  %cg#2.c#3%
+  [glob idea mech sr] (d9-dm12);
+  glob idea mech sr (dv1-dv4);
+  !%cg#2.c#4%
+  ![glob idea mech sr] (dm13-dm16);
+  !glob idea mech sr (dv1-dv4);
+  !%cg#2.c#5%
+  ![glob idea mech sr] (dm17-dm20);
+  !glob idea mech sr (dv1-dv4);
+
+
+
+*** WARNING in MODEL command
+  There are more equality/parameter labels given than there are parameters.
+  Some labels will not be used.  Problem found in the statement:
+  [ GLOB IDEA MECH SR ] (D9-DM12)
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+bESEM Multi-Group Configural
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1466
+
+Number of dependent variables                                    4
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           2
+
+Observed dependent variables
+
+  Continuous
+   GLOB        IDEA        MECH        SR
+
+Categorical latent variables
+   CG          C
+
+  Knownclass            CG
+
+Variables with special functions
+
+  Cluster variable      T_ID
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        750
+  Number of final stage optimizations                          250
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Parameterization                                             LOGIT
+
+Input data file(s)
+  besem.alt.mg.lpa.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           1
+     Number of u missing data patterns           0
+     Number of clusters          39
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB           1.000
+ IDEA           1.000         1.000
+ MECH           1.000         1.000         1.000
+ SR             1.000         1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     GLOB                 -0.017      -0.100      -2.916    0.07%      -0.772     -0.247     -0.047
+            1466.000       0.749      -0.230       1.738    3.34%       0.195      0.727
+     IDEA                 -0.017      -0.031      -1.646    0.07%      -0.468     -0.127      0.009
+            1466.000       0.290       0.170       1.860    0.07%       0.102      0.405
+     MECH                 -0.022      -0.420      -2.342    0.07%      -0.564     -0.224     -0.015
+            1466.000       0.450      -0.374       1.372    0.07%       0.245      0.622
+     SR                    0.011       0.028      -2.316    0.14%      -0.547     -0.200      0.017
+            1466.000       0.471      -0.183       2.211    0.07%       0.181      0.611
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -6873.285  686482           215
+           -6873.285  926762           704
+           -6873.285  155622           507
+           -6873.285  399671           13
+           -6873.285  264081           186
+           -6873.285  939709           112
+           -6873.285  51375            148
+           -6873.285  616917           261
+           -6873.285  801717           364
+           -6873.285  396795           323
+           -6873.285  939021           8
+           -6873.285  742688           594
+           -6873.285  294669           501
+           -6873.285  342019           301
+           -6873.285  153394           429
+           -6873.285  118421           139
+           -6873.285  903420           5
+           -6873.285  888905           444
+           -6873.285  635245           121
+           -6873.285  722748           346
+           -6873.285  915642           40
+           -6873.285  621542           375
+           -6873.285  117587           572
+           -6873.285  535804           111
+           -6873.285  645664           39
+           -6873.285  691234           250
+           -6873.285  930323           267
+           -6873.285  810705           626
+           -6873.285  963053           43
+           -6873.285  22089            143
+           -6873.285  961454           665
+           -6873.285  797594           234
+           -6873.285  545140           278
+           -6873.285  210870           383
+           -6873.285  610181           711
+           -6873.285  399508           415
+           -6873.285  752476           614
+           -6873.285  370466           41
+           -6873.285  950604           172
+           -6873.285  928287           197
+           -6873.285  168762           200
+           -6873.285  483369           270
+           -6873.285  387701           275
+           -6873.285  152496           123
+           -6873.285  3307             735
+           -6873.285  285380           1
+           -6873.285  838615           677
+           -6873.285  567165           319
+           -6873.285  62835            642
+           -6873.285  751054           117
+           -6873.285  638977           643
+           -6873.285  569131           26
+           -6873.285  227563           63
+           -6873.285  848331           137
+           -6873.285  67009            564
+           -6873.285  163110           584
+           -6873.285  876943           650
+           -6873.285  273992           349
+           -6873.285  791285           416
+           -6873.285  263221           447
+           -6873.285  425982           485
+           -6873.285  204959           695
+           -6873.285  416463           467
+           -6873.285  617243           237
+           -6873.285  830392           35
+           -6873.285  625191           350
+           -6873.285  441191           361
+           -6873.285  668003           647
+           -6873.285  937225           394
+           -6873.285  366706           29
+           -6873.285  505244           582
+           -6873.285  376411           473
+           -6873.285  723035           538
+           -6873.285  85114            385
+           -6873.285  55115            408
+           -6873.285  608460           244
+           -6873.285  276102           599
+           -6873.285  161421           519
+           -6873.285  677720           681
+           -6873.285  193569           440
+           -6873.285  849670           347
+           -6873.285  937885           426
+           -6873.285  354208           196
+           -6873.285  617658           660
+           -6873.285  281558           184
+           -6873.285  749635           420
+           -6873.285  340112           126
+           -6873.285  485256           371
+           -6873.285  972430           491
+           -6873.285  1548             384
+           -6873.285  123985           248
+           -6873.285  488125           368
+           -6873.285  49221            254
+           -6873.285  425929           508
+           -6873.285  276696           676
+           -6873.285  266340           683
+           -6873.285  769907           457
+           -6873.285  413564           535
+           -6873.285  848356           602
+           -6873.285  131856           90
+           -6873.285  327140           678
+           -6873.285  891531           206
+           -6873.285  282464           283
+           -6873.285  237332           661
+           -6873.285  605161           409
+           -6873.285  738393           619
+           -6873.285  4091             548
+           -6873.285  416250           390
+           -6873.285  190339           102
+           -6873.285  121425           511
+           -6873.285  206099           363
+           -6873.285  267983           228
+           -6873.285  626208           698
+           -6873.285  264935           281
+           -6873.285  897782           545
+           -6873.285  497522           502
+           -6873.285  348637           749
+           -6873.285  715561           125
+           -6873.285  320494           465
+           -6873.285  967237           48
+           -6873.285  626891           32
+           -6873.285  699554           427
+           -6873.285  173191           422
+           -6873.285  379729           512
+           -6873.285  922042           492
+           -6873.285  529496           343
+           -6873.285  97300            640
+           -6873.285  857799           315
+           -6873.285  579995           183
+           -6873.285  132336           362
+           -6873.285  69413            472
+           -6873.285  802779           122
+           -6873.285  377504           294
+           -6873.285  939870           655
+           -6873.285  443442           380
+           -6873.285  992389           77
+           -6873.285  587946           120
+           -6873.285  918558           412
+           -6873.285  489927           520
+           -6873.285  654136           167
+           -6873.285  539751           459
+           -6873.285  881886           608
+           -6873.285  781190           219
+           -6873.285  588923           606
+           -6873.285  512836           289
+           -6873.285  89970            223
+           -6873.285  856536           144
+           -6873.285  748692           204
+           -6873.285  509733           130
+           -6873.285  568859           49
+           -6873.285  404426           344
+           -6873.285  297518           166
+           -6873.285  467339           66
+           -6873.285  92564            583
+           -6873.285  360419           356
+           -6873.285  117391           710
+           -6873.285  294811           637
+           -6873.285  212934           568
+           -6873.285  42523            730
+           -6873.285  565819           65
+           -6873.285  418686           338
+           -6873.285  402699           604
+           -6873.285  804104           566
+           -6873.285  960438           116
+           -6873.285  264901           634
+           -6873.285  636396           168
+           -6873.285  82357            339
+           -6873.285  985387           381
+           -6873.285  933578           506
+           -6873.285  584397           428
+           -6873.285  920593           611
+           -6873.285  157351           579
+           -6873.285  160326           546
+           -6873.285  971693           470
+           -6873.285  373505           88
+           -6873.285  576726           280
+           -6873.285  762461           425
+           -6873.285  814975           129
+           -6873.285  544048           87
+           -6873.285  902278           21
+           -6873.285  931874           141
+           -6873.285  642386           662
+           -6873.285  46437            153
+           -6873.285  614535           449
+           -6873.285  377584           630
+           -6873.285  988761           475
+           -6873.285  268896           124
+           -6873.285  486622           522
+           -6873.285  724519           333
+           -6873.285  93468            3
+           -6873.285  793035           187
+           -6873.285  188498           258
+           -6873.285  891347           504
+           -6873.285  292884           103
+           -6873.285  647617           725
+           -6873.285  177936           726
+           -6873.285  181293           212
+           -6873.285  456213           160
+           -6873.285  879338           309
+           -6873.285  484501           163
+           -6873.285  775884           639
+           -6873.285  573096           20
+           -6873.285  316165           299
+           -6873.285  637345           19
+           -6873.285  793487           595
+           -6873.285  347222           533
+           -6873.285  521575           313
+           -6873.285  563584           657
+           -6873.285  244349           736
+           -6873.285  529455           268
+           -6873.285  534193           689
+           -6873.285  562716           300
+           -6873.285  442072           625
+           -6873.285  978061           488
+           -6873.285  303634           169
+           -6873.285  213532           503
+           -6873.285  605358           321
+           -6873.285  970689           266
+           -6873.285  432148           30
+           -6873.285  662718           460
+           -6873.285  685268           596
+           -6873.285  701525           239
+           -6873.285  136842           58
+           -6873.285  21132            351
+           -6873.285  746978           410
+           -6873.285  408713           450
+           -6873.285  840031           276
+           -6873.285  175199           247
+           -6873.285  50887            389
+           -6918.694  404510           442
+           -6920.983  341519           653
+           -6920.983  349360           464
+           -6920.983  679832           302
+           -6920.983  502495           724
+           -6920.983  97158            205
+           -6920.983  650354           577
+           -6920.983  15270            610
+           -6920.983  987090           70
+           -6920.983  479273           156
+           -6920.983  68850            462
+           -6920.983  792389           746
+           -6920.983  761302           744
+           -6921.989  80438            246
+           -6921.989  953843           651
+           -6921.989  882750           646
+           -6921.989  887580           493
+           -6921.989  507218           613
+           -6921.989  561664           392
+           -6921.989  592219           119
+           -6921.989  535063           329
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       37
+
+Loglikelihood
+
+          H0 Value                       -6873.285
+          H0 Scaling Correction Factor      1.3049
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   13820.571
+          Bayesian (BIC)                 14016.311
+          Sample-Size Adjusted BIC       13898.774
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS USE THE LATENT CLASS VARIABLE ORDER
+
+   CG  C
+
+  Latent Class Variable Patterns
+
+         CG         C
+      Class     Class
+
+         1         1
+         1         2
+         1         3
+         2         1
+         2         2
+         2         3
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Pattern
+
+    1  1        423.16699          0.28865
+    1  2        239.61878          0.16345
+    1  3         71.21423          0.04858
+    2  1        217.28158          0.14821
+    2  2        322.19764          0.21978
+    2  3        192.52079          0.13132
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Variable    Class
+
+    CG             1       734.00000          0.50068
+                   2       732.00000          0.49932
+    C              1       640.44855          0.43687
+                   2       561.81641          0.38323
+                   3       263.73502          0.17990
+
+
+LATENT TRANSITION PROBABILITIES BASED ON THE ESTIMATED MODEL
+
+  CG Classes (Rows) by C Classes (Columns)
+
+            1        2        3
+
+   1     0.577    0.326    0.097
+   2     0.297    0.440    0.263
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+  Latent Class
+    Pattern
+
+    1  1        423.16699          0.28865
+    1  2        239.61878          0.16345
+    1  3         71.21423          0.04858
+    2  1        217.28158          0.14821
+    2  2        322.19763          0.21978
+    2  3        192.52079          0.13132
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+  Latent Class
+    Variable    Class
+
+    CG             1       734.00000          0.50068
+                   2       732.00006          0.49932
+    C              1       640.44855          0.43687
+                   2       561.81641          0.38323
+                   3       263.73502          0.17990
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS
+BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN
+
+Class Counts and Proportions
+
+  Latent Class
+    Pattern
+
+    1  1              482          0.32879
+    1  2              191          0.13029
+    1  3               61          0.04161
+    2  1              200          0.13643
+    2  2              352          0.24011
+    2  3              180          0.12278
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN
+
+  Latent Class
+    Variable    Class
+
+    CG             1             734          0.50068
+                   2             732          0.49932
+    C              1             682          0.46521
+                   2             543          0.37040
+                   3             241          0.16439
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.761
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Pattern (Row)
+by Latent Class Pattern (Column)
+
+  Latent Class Variable Patterns
+
+  Latent Class         CG         C
+   Pattern No.      Class     Class
+
+         1             1         1
+         2             1         2
+         3             1         3
+         4             2         1
+         5             2         2
+         6             2         3
+
+           1        2        3        4        5        6
+
+    1   0.825    0.135    0.039    0.000    0.000    0.000
+    2   0.080    0.906    0.014    0.000    0.000    0.000
+    3   0.163    0.023    0.815    0.000    0.000    0.000
+    4   0.000    0.000    0.000    0.902    0.051    0.047
+    5   0.000    0.000    0.000    0.077    0.796    0.127
+    6   0.000    0.000    0.000    0.055    0.177    0.769
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class Pattern 1 1
+
+ Means
+    GLOB               0.425      0.107      3.989      0.000
+    IDEA               0.143      0.038      3.785      0.000
+    MECH              -0.032      0.065     -0.488      0.626
+    SR                 0.117      0.067      1.751      0.080
+
+ Variances
+    GLOB               0.461      0.046      9.979      0.000
+    IDEA               0.155      0.016      9.866      0.000
+    MECH               0.410      0.030     13.907      0.000
+    SR                 0.427      0.036     11.803      0.000
+
+Latent Class Pattern 1 2
+
+ Means
+    GLOB              -0.634      0.082     -7.694      0.000
+    IDEA              -0.457      0.071     -6.433      0.000
+    MECH               0.122      0.069      1.753      0.080
+    SR                -0.012      0.068     -0.182      0.855
+
+ Variances
+    GLOB               0.461      0.046      9.979      0.000
+    IDEA               0.155      0.016      9.866      0.000
+    MECH               0.410      0.030     13.907      0.000
+    SR                 0.427      0.036     11.803      0.000
+
+Latent Class Pattern 1 3
+
+ Means
+    GLOB              -0.518      0.191     -2.713      0.007
+    IDEA               0.788      0.200      3.948      0.000
+    MECH              -0.670      0.170     -3.940      0.000
+    SR                -0.635      0.128     -4.967      0.000
+
+ Variances
+    GLOB               0.461      0.046      9.979      0.000
+    IDEA               0.155      0.016      9.866      0.000
+    MECH               0.410      0.030     13.907      0.000
+    SR                 0.427      0.036     11.803      0.000
+
+Latent Class Pattern 2 1
+
+ Means
+    GLOB              -0.818      0.095     -8.611      0.000
+    IDEA              -0.548      0.056     -9.731      0.000
+    MECH               0.118      0.078      1.526      0.127
+    SR                -0.047      0.074     -0.636      0.524
+
+ Variances
+    GLOB               0.441      0.027     16.429      0.000
+    IDEA               0.148      0.009     17.235      0.000
+    MECH               0.418      0.021     19.677      0.000
+    SR                 0.372      0.036     10.233      0.000
+
+Latent Class Pattern 2 2
+
+ Means
+    GLOB               0.556      0.095      5.825      0.000
+    IDEA               0.014      0.030      0.455      0.649
+    MECH               0.068      0.044      1.537      0.124
+    SR                 0.332      0.075      4.440      0.000
+
+ Variances
+    GLOB               0.441      0.027     16.429      0.000
+    IDEA               0.148      0.009     17.235      0.000
+    MECH               0.418      0.021     19.677      0.000
+    SR                 0.372      0.036     10.233      0.000
+
+Latent Class Pattern 2 3
+
+ Means
+    GLOB              -0.089      0.076     -1.179      0.238
+    IDEA               0.427      0.094      4.526      0.000
+    MECH              -0.252      0.096     -2.625      0.009
+    SR                -0.426      0.084     -5.054      0.000
+
+ Variances
+    GLOB               0.441      0.027     16.429      0.000
+    IDEA               0.148      0.009     17.235      0.000
+    MECH               0.418      0.021     19.677      0.000
+    SR                 0.372      0.036     10.233      0.000
+
+Categorical Latent Variables
+
+ C#1      ON
+    CG#1               1.661      0.468      3.552      0.000
+
+ C#2      ON
+    CG#1               0.698      0.398      1.753      0.080
+
+ Means
+    CG#1               0.003      0.045      0.061      0.951
+    C#1                0.121      0.298      0.406      0.685
+    C#2                0.515      0.358      1.439      0.150
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.880E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  20:27:43
+        Ending Time:  20:28:18
+       Elapsed Time:  00:00:35
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen

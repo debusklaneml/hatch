@@ -1,0 +1,98 @@
+TITLE: 6-Validate Alt (fixed) bESEM LPA 
+DATA: FILE = "valid.besem.alt.dat";
+VARIABLE: 
+NAMES = id se2 se3 se4 se5 se6 se7 se8 se9 female ethnic ell disability gifted
+     grade_level test_score mark glob glob_se idea idea_se mech mech_se sr sr_se
+     t_id minority bs as affect concern perf_level writing_tot writing_cat1
+     writing_cat2; 
+MISSING=.;
+USEVARIABLES = glob idea mech sr;
+CLASSES = c (6);
+ANALYSIS: TYPE = MIXTURE;
+Starts = 0;
+Processors = 6 4;
+Model:
+%OVERALL%
+
+     [ c#1@0.36416 ];
+     [ c#2@-0.96756 ];
+     [ c#3@1.01327 ];
+     [ c#4@0.46852 ];
+     [ c#5@0.39982 ];
+
+     %C#1%
+
+     [ glob@0.32433 ];
+     [ idea@-0.31081 ];
+     [ mech@0.05526 ];
+     [ sr@0.40549 ];
+
+     glob@0.25237 (5);
+     idea@0.05611 (6);
+     mech@0.42048 (7);
+     sr@0.38075 (8);
+
+     %C#2%
+
+     [ glob@-0.81597 ];
+     [ idea@1.18531 ];
+     [ mech@-0.60200 ];
+     [ sr@-0.67784 ];
+
+     glob@0.25237 (5);
+     idea@0.05611 (6);
+     mech@0.42048 (7);
+     sr@0.38075 (8);
+
+     %C#3%
+
+     [ glob@-0.41671 ];
+     [ idea@0.04347 ];
+     [ mech@-0.12995 ];
+     [ sr@-0.24577 ];
+
+     glob@0.25237 (5);
+     idea@0.05611 (6);
+     mech@0.42048 (7);
+     sr@0.38075 (8);
+
+     %C#4%
+
+     [ glob@-0.79521 ];
+     [ idea@-0.71949 ];
+     [ mech@0.19150 ];
+     [ sr@0.08985 ];
+
+     glob@0.25237 (5);
+     idea@0.05611 (6);
+     mech@0.42048 (7);
+     sr@0.38075 (8);
+
+     %C#5%
+
+     [ glob@0.57879 ];
+     [ idea@0.58681 ];
+     [ mech@-0.21460 ];
+     [ sr@-0.14003 ];
+
+     glob@0.25237 (5);
+     idea@0.05611 (6);
+     mech@0.42048 (7);
+     sr@0.38075 (8);
+
+     %C#6%
+
+     [ glob@1.29520 ];
+     [ idea@0.23633 ];
+     [ mech@0.14453 ];
+     [ sr@0.43228 ];
+
+     glob@0.25237 (5);
+     idea@0.05611 (6);
+     mech@0.42048 (7);
+     sr@0.38075 (8);
+OUTPUT: 
+!TECH11; 
+!TECH14;
+
+

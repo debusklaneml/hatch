@@ -1,0 +1,17 @@
+TITLE: 4-Validate (free) CFA LPA 
+DATA: FILE = "valid.cfa.dat";
+VARIABLE: 
+NAMES = id se1 se2 se3 se4 se5 se6 se7 se8 se9 female ethnic ell disability gifted
+     grade_level test_score mark idea idea_se mech mech_se sr sr_se t_id minority bs
+     as affect concern; 
+MISSING=.;
+USEVARIABLES = idea mech sr;
+CLASSES = c (4);
+ANALYSIS: TYPE = MIXTURE;
+Starts = 750 250;
+Processors = 6 4;
+
+OUTPUT: 
+!TECH11; 
+!TECH14;
+svalues;

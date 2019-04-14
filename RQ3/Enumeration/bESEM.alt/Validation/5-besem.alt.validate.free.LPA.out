@@ -1,0 +1,683 @@
+Mplus VERSION 8.1 (Mac)
+MUTHEN & MUTHEN
+04/11/2019   8:00 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: 5-Validate Alt (free) bESEM LPA
+  DATA: FILE = "valid.besem.alt.dat";
+  VARIABLE:
+  NAMES = id se2 se3 se4 se5 se6 se7 se8 se9 female ethnic ell disability gifted
+       grade_level test_score mark glob glob_se idea idea_se mech mech_se sr sr_se
+       t_id minority bs as affect concern perf_level writing_tot writing_cat1
+       writing_cat2;
+  MISSING=.;
+  USEVARIABLES = glob idea mech sr;
+  CLASSES = c (5);
+  ANALYSIS: TYPE = MIXTURE;
+  Starts = 750 250;
+  Processors = 6 4;
+
+  OUTPUT:
+  !TECH11;
+  !TECH14;
+  svalues;
+
+
+
+
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+5-Validate Alt (free) bESEM LPA
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         732
+
+Number of dependent variables                                    4
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   GLOB        IDEA        MECH        SR
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        750
+  Number of final stage optimizations                          250
+  Number of initial stage iterations                            10
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+
+Input data file(s)
+  valid.besem.alt.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           1
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB           1.000
+ IDEA           1.000         1.000
+ MECH           1.000         1.000         1.000
+ SR             1.000         1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     GLOB                 -0.022      -0.074      -2.916    0.14%      -0.809     -0.247     -0.031
+             732.000       0.777      -0.332       1.738    3.69%       0.188      0.746
+     IDEA                 -0.044      -0.151      -1.646    0.14%      -0.476     -0.154     -0.021
+             732.000       0.283      -0.003       1.477    0.14%       0.088      0.367
+     MECH                 -0.001      -0.398      -1.792    0.14%      -0.572     -0.200      0.024
+             732.000       0.441      -0.540       1.313    0.14%       0.316      0.648
+     SR                    0.020       0.020      -2.316    0.14%      -0.532     -0.187      0.020
+             732.000       0.469      -0.119       2.008    0.14%       0.192      0.611
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -2854.074  307843           664
+           -2854.074  314757           345
+           -2854.074  399380           436
+           -2854.074  51375            148
+           -2854.074  246261           38
+           -2854.074  364676           27
+           -2854.074  802779           122
+           -2854.074  160326           546
+           -2854.074  933578           506
+           -2854.074  580405           286
+           -2854.074  213189           605
+           -2854.074  519357           559
+           -2854.074  502495           724
+           -2854.074  297518           166
+           -2854.074  992389           77
+           -2854.074  534483           290
+           -2854.074  662718           460
+           -2854.074  926283           269
+           -2854.074  371246           101
+           -2854.074  76337            76
+           -2854.074  17896            592
+           -2854.074  635245           121
+           -2854.074  638977           643
+           -2854.074  220454           288
+           -2854.074  190339           102
+           -2854.074  824126           287
+           -2854.074  193569           440
+           -2854.074  654136           167
+           -2863.041  117391           710
+           -2863.041  505879           424
+           -2863.041  783102           433
+           -2863.041  314084           81
+           -2863.041  92689            304
+           -2863.041  682718           733
+           -2863.041  417035           149
+           -2863.041  726035           191
+           -2863.041  848890           95
+           -2863.041  738393           619
+           -2863.041  677720           681
+           -2863.041  206099           363
+           -2863.041  69413            472
+           -2863.041  937885           426
+           -2863.041  210870           383
+           -2863.041  246575           291
+           -2863.041  415931           10
+           -2863.041  670281           721
+           -2863.041  89970            223
+           -2863.041  319575           499
+           -2863.041  489927           520
+           -2863.041  273992           349
+           -2863.041  780698           337
+           -2863.041  118421           139
+           -2863.041  248742           556
+           -2875.475  576596           99
+           -2875.475  831410           567
+           -2875.475  113138           585
+           -2875.475  484687           306
+           -2875.475  791285           416
+           -2875.475  383902           673
+           -2875.475  276696           676
+           -2875.475  238906           430
+           -2875.475  220492           743
+           -2875.475  281558           184
+           -2875.475  824956           607
+           -2875.475  59963            670
+           -2875.475  392407           221
+           -2875.475  349263           263
+           -2875.475  366533           484
+           -2875.475  950604           172
+           -2875.475  316165           299
+           -2875.475  61587            400
+           -2875.475  752769           253
+           -2875.475  966014           37
+           -2875.475  396795           323
+           -2875.475  625191           350
+           -2875.475  631413           439
+           -2875.475  260953           589
+           -2875.475  823392           479
+           -2875.475  464179           106
+           -2875.475  161421           519
+           -2875.475  641794           591
+           -2875.475  882750           646
+           -2875.475  392766           331
+           -2875.475  551639           55
+           -2875.475  266340           683
+           -2875.475  833196           715
+           -2875.475  647617           725
+           -2875.475  168762           200
+           -2875.475  341960           685
+           -2875.475  318177           748
+           -2875.475  640833           434
+           -2875.475  830570           369
+           -2875.475  395754           388
+           -2875.475  791396           243
+           -2875.475  352277           42
+           -2875.475  322790           636
+           -2875.475  665121           417
+           -2875.475  136842           58
+           -2875.475  78862            529
+           -2875.475  92091            649
+           -2875.475  659773           663
+           -2875.475  471438           252
+           -2875.475  778953           635
+           -2875.475  922042           492
+           -2875.475  996231           310
+           -2875.475  875667           367
+           -2875.475  715255           523
+           -2875.475  488125           368
+           -2875.475  847088           750
+           -2875.475  963053           43
+           -2875.475  521575           313
+           -2875.475  59674            240
+           -2875.475  264935           281
+           -2875.475  667250           318
+           -2875.475  137377           397
+           -2875.475  370466           41
+           -2875.475  148918           682
+           -2875.475  147440           514
+           -2875.475  622860           259
+           -2875.475  486646           586
+           -2875.475  742688           594
+           -2875.475  804561           59
+           -2875.475  728038           177
+           -2875.475  345726           461
+           -2875.475  345070           114
+           -2875.475  77210            712
+           -2875.475  188498           258
+           -2875.475  616917           261
+           -2875.475  903633           553
+           -2875.475  476393           705
+           -2875.475  321390           133
+           -2875.475  579995           183
+           -2875.475  97300            640
+           -2875.475  637345           19
+           -2875.475  354624           448
+           -2875.475  415502           194
+           -2875.475  762461           425
+           -2875.475  666720           671
+           -2875.475  535804           111
+           -2875.475  918558           412
+           -2875.475  760850           739
+           -2875.475  370957           554
+           -2875.475  972873           157
+           -2875.475  644297           340
+           -2875.475  340112           126
+           -2875.475  592219           119
+           -2875.475  485256           371
+           -2875.475  140849           515
+           -2875.475  617658           660
+           -2875.475  85462            51
+           -2875.475  496881           192
+           -2875.475  947714           573
+           -2875.475  215353           164
+           -2875.475  195763           358
+           -2875.475  599729           658
+           -2875.475  629320           222
+           -2875.475  62835            642
+           -2875.475  608496           4
+           -2875.475  260601           36
+           -2875.475  945065           255
+           -2875.475  569833           85
+           -2875.475  283492           435
+           -2875.475  407168           44
+           -2875.475  650371           14
+           -2875.475  602032           648
+           -2875.475  978061           488
+           -2875.475  783165           170
+           -2875.475  468036           131
+           -2875.475  471398           74
+           -2875.475  50887            389
+           -2875.475  848969           173
+           -2875.475  117587           572
+           -2875.475  173191           422
+           -2875.475  944186           541
+           -2875.475  177936           726
+           -2875.475  723775           97
+           -2875.475  497522           502
+           -2875.475  354395           486
+           -2875.475  563584           657
+           -2875.475  646573           741
+           -2875.475  775884           639
+           -2875.475  1548             384
+           -2875.475  967902           52
+           -2875.475  937225           394
+           -2875.475  117731           570
+           -2875.475  72662            729
+           -2875.475  741484           441
+           -2875.475  931874           141
+           -2875.475  284716           713
+           -2875.475  341519           653
+           -2875.475  829540           324
+           -2875.475  605565           404
+           -2875.475  897782           545
+           -2875.475  4091             548
+           -2875.475  179022           687
+           -2875.475  276102           599
+           -2880.292  636396           168
+           -2880.292  746978           410
+           -2880.292  232226           235
+           -2880.292  264081           186
+           -2880.292  748692           204
+           -2880.292  965639           463
+           -2880.292  858804           534
+           -2880.292  871438           561
+           -2880.292  193042           316
+           -2880.407  614009           317
+           -2880.407  648555           113
+           -2880.407  978781           497
+           -2880.407  518828           432
+           -2880.407  761633           50
+           -2880.407  840031           276
+           -2880.407  369602           146
+           -2880.407  21132            351
+           -2880.407  391949           295
+           -2880.407  282464           283
+           -2880.407  123985           248
+           -2880.407  112586           494
+           -2880.407  566739           575
+           -2880.407  997222           229
+           -2880.407  569131           26
+           -2880.407  284109           82
+           -2880.407  154575           539
+           -2880.407  342019           301
+           -2880.407  852283           616
+           -2880.407  259507           53
+           -2880.407  411615           171
+           -2880.407  953843           651
+           -2880.407  609185           181
+           -2880.407  408713           450
+           -2880.407  505244           582
+           -2880.407  84013            598
+           -2880.407  669639           699
+           -2880.407  621542           375
+           -2880.407  618760           489
+           -2880.407  849670           347
+           -2880.407  928287           197
+           -2880.828  23012            352
+           -2880.828  76974            16
+           -2880.828  801065           393
+           -2880.828  802682           419
+           -2885.303  714997           399
+           -2885.303  903420           5
+           -2890.026  576726           280
+           -2890.026  595153           230
+           -2890.026  692169           308
+           -2890.026  313407           132
+           -2890.026  793487           595
+           -2890.026  237332           661
+           -2890.026  418686           338
+           -2907.540  801717           364
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       28
+
+Loglikelihood
+
+          H0 Value                       -2854.074
+          H0 Scaling Correction Factor      1.1624
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    5764.147
+          Bayesian (BIC)                  5892.829
+          Sample-Size Adjusted BIC        5803.920
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        129.34047          0.17669
+       2        186.91630          0.25535
+       3        190.63047          0.26042
+       4         83.96292          0.11470
+       5        141.14984          0.19283
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        129.34047          0.17669
+       2        186.91630          0.25535
+       3        190.63048          0.26042
+       4         83.96292          0.11470
+       5        141.14984          0.19283
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              146          0.19945
+       2              182          0.24863
+       3              185          0.25273
+       4               75          0.10246
+       5              144          0.19672
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.744
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4        5
+
+    1   0.836    0.100    0.064    0.000    0.000
+    2   0.009    0.814    0.149    0.000    0.028
+    3   0.031    0.109    0.819    0.031    0.011
+    4   0.000    0.001    0.018    0.915    0.067
+    5   0.000    0.027    0.010    0.067    0.897
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4        5
+
+    1   0.943    0.013    0.044    0.000    0.000
+    2   0.078    0.792    0.108    0.000    0.021
+    3   0.049    0.142    0.795    0.007    0.007
+    4   0.000    0.001    0.068    0.817    0.114
+    5   0.000    0.036    0.014    0.035    0.915
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4        5
+
+    1     13.757    9.468   10.685    0.000    0.000
+    2      1.325    3.637    1.647   -4.381    0.000
+    3      1.913    2.983    4.702   -0.029    0.000
+    4    -11.648   -5.295   -0.524    1.965    0.000
+    5    -11.735   -3.238   -4.188   -3.250    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Means
+    GLOB              -0.873      0.067    -12.950      0.000
+    IDEA              -0.803      0.057    -14.012      0.000
+    MECH               0.123      0.074      1.655      0.098
+    SR                 0.101      0.075      1.333      0.182
+
+ Variances
+    GLOB               0.293      0.045      6.531      0.000
+    IDEA               0.063      0.006     10.436      0.000
+    MECH               0.410      0.020     20.690      0.000
+    SR                 0.372      0.027     13.816      0.000
+
+Latent Class 2
+
+ Means
+    GLOB               0.214      0.066      3.247      0.001
+    IDEA              -0.252      0.045     -5.617      0.000
+    MECH               0.184      0.061      3.027      0.002
+    SR                 0.274      0.096      2.838      0.005
+
+ Variances
+    GLOB               0.293      0.045      6.531      0.000
+    IDEA               0.063      0.006     10.436      0.000
+    MECH               0.410      0.020     20.690      0.000
+    SR                 0.372      0.027     13.816      0.000
+
+Latent Class 3
+
+ Means
+    GLOB              -0.590      0.127     -4.629      0.000
+    IDEA               0.049      0.050      0.974      0.330
+    MECH              -0.090      0.093     -0.962      0.336
+    SR                -0.319      0.073     -4.371      0.000
+
+ Variances
+    GLOB               0.293      0.045      6.531      0.000
+    IDEA               0.063      0.006     10.436      0.000
+    MECH               0.410      0.020     20.690      0.000
+    SR                 0.372      0.027     13.816      0.000
+
+Latent Class 4
+
+ Means
+    GLOB               0.122      0.115      1.065      0.287
+    IDEA               0.807      0.049     16.523      0.000
+    MECH              -0.389      0.088     -4.417      0.000
+    SR                -0.468      0.098     -4.788      0.000
+
+ Variances
+    GLOB               0.293      0.045      6.531      0.000
+    IDEA               0.063      0.006     10.436      0.000
+    MECH               0.410      0.020     20.690      0.000
+    SR                 0.372      0.027     13.816      0.000
+
+Latent Class 5
+
+ Means
+    GLOB               1.128      0.067     16.840      0.000
+    IDEA               0.294      0.024     12.410      0.000
+    MECH              -0.011      0.058     -0.183      0.855
+    SR                 0.360      0.063      5.703      0.000
+
+ Variances
+    GLOB               0.293      0.045      6.531      0.000
+    IDEA               0.063      0.006     10.436      0.000
+    MECH               0.410      0.020     20.690      0.000
+    SR                 0.372      0.027     13.816      0.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -0.087      0.188     -0.464      0.642
+    C#2                0.281      0.250      1.121      0.262
+    C#3                0.301      0.210      1.429      0.153
+    C#4               -0.519      0.241     -2.160      0.031
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.209E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     [ c#1*-0.08737 ];
+     [ c#2*0.28084 ];
+     [ c#3*0.30051 ];
+     [ c#4*-0.51945 ];
+
+     %C#1%
+
+     [ glob*-0.87281 ];
+     [ idea*-0.80289 ];
+     [ mech*0.12291 ];
+     [ sr*0.10060 ];
+
+     glob*0.29339 (5);
+     idea*0.06302 (6);
+     mech*0.41032 (7);
+     sr*0.37194 (8);
+
+     %C#2%
+
+     [ glob*0.21358 ];
+     [ idea*-0.25244 ];
+     [ mech*0.18419 ];
+     [ sr*0.27366 ];
+
+     glob*0.29339 (5);
+     idea*0.06302 (6);
+     mech*0.41032 (7);
+     sr*0.37194 (8);
+
+     %C#3%
+
+     [ glob*-0.58985 ];
+     [ idea*0.04881 ];
+     [ mech*-0.08976 ];
+     [ sr*-0.31889 ];
+
+     glob*0.29339 (5);
+     idea*0.06302 (6);
+     mech*0.41032 (7);
+     sr*0.37194 (8);
+
+     %C#4%
+
+     [ glob*0.12200 ];
+     [ idea*0.80707 ];
+     [ mech*-0.38911 ];
+     [ sr*-0.46759 ];
+
+     glob*0.29339 (5);
+     idea*0.06302 (6);
+     mech*0.41032 (7);
+     sr*0.37194 (8);
+
+     %C#5%
+
+     [ glob*1.12811 ];
+     [ idea*0.29364 ];
+     [ mech*-0.01059 ];
+     [ sr*0.35971 ];
+
+     glob*0.29339 (5);
+     idea*0.06302 (6);
+     mech*0.41032 (7);
+     sr*0.37194 (8);
+
+
+
+     Beginning Time:  20:00:13
+        Ending Time:  20:00:24
+       Elapsed Time:  00:00:11
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen

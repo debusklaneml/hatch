@@ -1,0 +1,70 @@
+TITLE: 3-bESEM Alt LPA 
+DATA: FILE = "fscores.besem.alt.dat";
+VARIABLE: 
+NAMES = id se2 se3 se4 se5 se6 se7 se8 se9 female ethnic ell disability gifted
+     grade_level test_score mark glob glob_se idea idea_se mech mech_se sr sr_se
+     t_id minority bs as affect concern total_8th total_10th cat1_8th cat1_10th
+     cat2_8th cat2_10th; 
+MISSING=.;
+USEVARIABLES = glob idea mech sr;
+!auxiliary = (bch) bs as affect concern total_8th-cat2_10th;
+auxiliary = id female ell disability gifted grade_level minority;
+!auxiliary = (R3STEP) female grade_level minority gifted disability ell;
+CLASSES = c (3);
+cluster = t_id;
+ANALYSIS: TYPE = MIXTURE complex;
+Starts = 0;
+!OPTSEED = 668003;
+Processors = 6 4;
+Model:
+%OVERALL%
+
+     [ c#2@-1.06432 ];
+     [ c#1@-0.49675 ];
+
+     %C#2%
+
+     [ glob@-0.21935 ];
+     [ idea@0.56645 ];
+     [ mech@-0.41352 ];
+     [ sr@-0.51553 ];
+
+     glob@0.45755 (5);
+     idea@0.15444 (6);
+     mech@0.41476 (7);
+     sr@0.39850 (8);
+
+     %C#1%
+
+     [ glob@-0.72509 ];
+     [ idea@-0.49584 ];
+     [ mech@0.12763 ];
+     [ sr@-0.04027 ];
+
+     glob@0.45755 (5);
+     idea@0.15444 (6);
+     mech@0.41476 (7);
+     sr@0.39850 (8);
+
+     %C#3%
+
+     [ glob@0.48402 ];
+     [ idea@0.07258 ];
+     [ mech@0.02117 ];
+     [ sr@0.22399 ];
+
+     glob@0.45755 (5);
+     idea@0.15444 (6);
+     mech@0.41476 (7);
+     sr@0.39850 (8);
+OUTPUT: 
+!TECH11; 
+!TECH14;
+!svalues;
+!entropy;
+SaveData:
+File is "cprobs.besem.alt.csv";
+Save = CPROBABILITIES;
+
+
+

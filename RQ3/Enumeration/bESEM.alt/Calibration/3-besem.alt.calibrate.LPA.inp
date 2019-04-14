@@ -1,0 +1,18 @@
+TITLE: 3-Calibrate Alt bESEM LPA 
+DATA: FILE = "calib.besem.alt.dat";
+VARIABLE: 
+NAMES = id se2 se3 se4 se5 se6 se7 se8 se9 female ethnic ell disability gifted
+     grade_level test_score mark glob glob_se idea idea_se mech mech_se sr sr_se
+     t_id minority bs as affect concern perf_level writing_tot writing_cat1
+     writing_cat2; 
+MISSING=.;
+USEVARIABLES = glob idea mech sr;
+CLASSES = c (3);
+ANALYSIS: TYPE = MIXTURE;
+Starts = 750 200;
+Processors = 6 4;
+OUTPUT: 
+TECH11; 
+TECH14;
+svalues;
+

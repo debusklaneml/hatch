@@ -1,0 +1,436 @@
+Mplus VERSION 8.1 (Mac)
+MUTHEN & MUTHEN
+04/11/2019   7:44 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: 4-Validate Alt (fixed) bESEM LPA
+  DATA: FILE = "valid.besem.alt.dat";
+  VARIABLE:
+  NAMES = id se2 se3 se4 se5 se6 se7 se8 se9 female ethnic ell disability gifted
+       grade_level test_score mark glob glob_se idea idea_se mech mech_se sr sr_se
+       t_id minority bs as affect concern perf_level writing_tot writing_cat1
+       writing_cat2;
+  MISSING=.;
+  USEVARIABLES = glob idea mech sr;
+  CLASSES = c (4);
+  ANALYSIS: TYPE = MIXTURE;
+  Starts = 0;
+  Processors = 6 4;
+  Model:
+  %OVERALL%
+
+       [ c#1@1.45021 ];
+       [ c#2@0.92189 ];
+       [ c#3@0.18751 ];
+
+       %C#1%
+
+       [ glob@0.49514 ];
+       [ idea@0.15875 ];
+       [ mech@-0.08343 ];
+       [ sr@0.22521 ];
+
+       glob@0.48346 (5);
+       idea@0.13750 (6);
+       mech@0.42305 (7);
+       sr@0.29005 (8);
+
+       %C#2%
+
+       [ glob@-0.56972 ];
+       [ idea@-0.24204 ];
+       [ mech@0.13454 ];
+       [ sr@-0.40508 ];
+
+       glob@0.48346 (5);
+       idea@0.13750 (6);
+       mech@0.42305 (7);
+       sr@0.29005 (8);
+
+       %C#3%
+
+       [ glob@-0.39278 ];
+       [ idea@-0.65286 ];
+       [ mech@0.09654 ];
+       [ sr@0.65300 ];
+
+       glob@0.48346 (5);
+       idea@0.13750 (6);
+       mech@0.42305 (7);
+       sr@0.29005 (8);
+
+       %C#4%
+
+       [ glob@-0.31215 ];
+       [ idea@0.80715 ];
+       [ mech@-0.48968 ];
+       [ sr@-0.71296 ];
+
+       glob@0.48346 (5);
+       idea@0.13750 (6);
+       mech@0.42305 (7);
+       sr@0.29005 (8);
+  OUTPUT:
+  !TECH11;
+  !TECH14;
+  svalues;
+
+
+
+
+*** WARNING in ANALYSIS command
+  The second number in the PROCESSORS option will be ignored because no random
+  starts have been requested.
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+4-Validate Alt (fixed) bESEM LPA
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         732
+
+Number of dependent variables                                    4
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Continuous
+   GLOB        IDEA        MECH        SR
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  valid.besem.alt.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           1
+     Number of u missing data patterns           0
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB           1.000
+ IDEA           1.000         1.000
+ MECH           1.000         1.000         1.000
+ SR             1.000         1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     GLOB                 -0.022      -0.074      -2.916    0.14%      -0.809     -0.247     -0.031
+             732.000       0.777      -0.332       1.738    3.69%       0.188      0.746
+     IDEA                 -0.044      -0.151      -1.646    0.14%      -0.476     -0.154     -0.021
+             732.000       0.283      -0.003       1.477    0.14%       0.088      0.367
+     MECH                 -0.001      -0.398      -1.792    0.14%      -0.572     -0.200      0.024
+             732.000       0.441      -0.540       1.313    0.14%       0.316      0.648
+     SR                    0.020       0.020      -2.316    0.14%      -0.532     -0.187      0.020
+             732.000       0.469      -0.119       2.008    0.14%       0.192      0.611
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        0
+
+Loglikelihood
+
+          H0 Value                       -2922.352
+
+Information Criteria
+
+          Akaike (AIC)                    5844.704
+          Bayesian (BIC)                  5844.704
+          Sample-Size Adjusted BIC        5844.704
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        347.41257          0.47461
+       2        204.83261          0.27983
+       3         98.27926          0.13426
+       4         81.47556          0.11131
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        341.46699          0.46648
+       2        217.66593          0.29736
+       3        103.95319          0.14201
+       4         68.91390          0.09414
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              380          0.51913
+       2              206          0.28142
+       3               85          0.11612
+       4               61          0.08333
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.616
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.786    0.122    0.057    0.035
+    2   0.118    0.764    0.084    0.034
+    3   0.112    0.123    0.764    0.000
+    4   0.149    0.054    0.000    0.796
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.874    0.071    0.028    0.027
+    2   0.213    0.723    0.048    0.015
+    3   0.209    0.166    0.625    0.000
+    4   0.193    0.102    0.000    0.705
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      3.490    0.981    0.046    0.000
+    2      2.641    3.861    1.153    0.000
+    3      7.858    7.627    8.954    0.000
+    4     -1.296   -1.931  -10.156    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Means
+    GLOB               0.495      0.000    999.000    999.000
+    IDEA               0.159      0.000    999.000    999.000
+    MECH              -0.083      0.000    999.000    999.000
+    SR                 0.225      0.000    999.000    999.000
+
+ Variances
+    GLOB               0.483      0.000    999.000    999.000
+    IDEA               0.138      0.000    999.000    999.000
+    MECH               0.423      0.000    999.000    999.000
+    SR                 0.290      0.000    999.000    999.000
+
+Latent Class 2
+
+ Means
+    GLOB              -0.570      0.000    999.000    999.000
+    IDEA              -0.242      0.000    999.000    999.000
+    MECH               0.135      0.000    999.000    999.000
+    SR                -0.405      0.000    999.000    999.000
+
+ Variances
+    GLOB               0.483      0.000    999.000    999.000
+    IDEA               0.138      0.000    999.000    999.000
+    MECH               0.423      0.000    999.000    999.000
+    SR                 0.290      0.000    999.000    999.000
+
+Latent Class 3
+
+ Means
+    GLOB              -0.393      0.000    999.000    999.000
+    IDEA              -0.653      0.000    999.000    999.000
+    MECH               0.097      0.000    999.000    999.000
+    SR                 0.653      0.000    999.000    999.000
+
+ Variances
+    GLOB               0.483      0.000    999.000    999.000
+    IDEA               0.138      0.000    999.000    999.000
+    MECH               0.423      0.000    999.000    999.000
+    SR                 0.290      0.000    999.000    999.000
+
+Latent Class 4
+
+ Means
+    GLOB              -0.312      0.000    999.000    999.000
+    IDEA               0.807      0.000    999.000    999.000
+    MECH              -0.490      0.000    999.000    999.000
+    SR                -0.713      0.000    999.000    999.000
+
+ Variances
+    GLOB               0.483      0.000    999.000    999.000
+    IDEA               0.138      0.000    999.000    999.000
+    MECH               0.423      0.000    999.000    999.000
+    SR                 0.290      0.000    999.000    999.000
+
+Categorical Latent Variables
+
+ Means
+    C#1                1.450      0.000    999.000    999.000
+    C#2                0.922      0.000    999.000    999.000
+    C#3                0.188      0.000    999.000    999.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.100E+01
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     [ c#1@1.45021 ];
+     [ c#2@0.92189 ];
+     [ c#3@0.18751 ];
+
+     %C#1%
+
+     [ glob@0.49514 ];
+     [ idea@0.15875 ];
+     [ mech@-0.08343 ];
+     [ sr@0.22521 ];
+
+     glob@0.48346;
+     idea@0.13750;
+     mech@0.42305;
+     sr@0.29005;
+
+     %C#2%
+
+     [ glob@-0.56972 ];
+     [ idea@-0.24204 ];
+     [ mech@0.13454 ];
+     [ sr@-0.40508 ];
+
+     glob@0.48346;
+     idea@0.13750;
+     mech@0.42305;
+     sr@0.29005;
+
+     %C#3%
+
+     [ glob@-0.39278 ];
+     [ idea@-0.65286 ];
+     [ mech@0.09654 ];
+     [ sr@0.65300 ];
+
+     glob@0.48346;
+     idea@0.13750;
+     mech@0.42305;
+     sr@0.29005;
+
+     %C#4%
+
+     [ glob@-0.31215 ];
+     [ idea@0.80715 ];
+     [ mech@-0.48968 ];
+     [ sr@-0.71296 ];
+
+     glob@0.48346;
+     idea@0.13750;
+     mech@0.42305;
+     sr@0.29005;
+
+
+
+     Beginning Time:  19:44:22
+        Ending Time:  19:44:22
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen
