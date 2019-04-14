@@ -1,0 +1,683 @@
+Mplus VERSION 8.1 (Mac)
+MUTHEN & MUTHEN
+04/10/2019  10:32 PM
+
+INPUT INSTRUCTIONS
+
+  Title: WMQ bESEM
+  DATA: FILE = "raw.8.9.10.dat";
+  VARIABLE:
+  NAMES = id female ethnic ell disability t_id gifted grade_level se1 se2 se3 se4 se5
+       se6 se7 se8 se9 wses1 wses5 wses8 wses2 wses6 wses3 wses10 wses7 wses4 wses9
+       was1 was3 was5 was11 was6 was7 was8 was4 was9 was2 was10 was12 test_score mark;
+  MISSING=.;
+    UseVariables = se2-se9;
+    Auxiliary = id-disability gifted grade_level test_score mark;
+     Categorical = se2-se9;
+     Cluster = t_id;
+  Analysis:
+  Type = complex;
+  Estimator = wlsmv;
+  !PARAMETERIZATION = THETA;
+  !starts = 10;
+  !ITERATIONS = 6000;
+  Rotation = target (orthogonal);
+  Model:
+  glob by 	se2 se6 se7
+  	se3 se5
+  	se4 se8 se9 (*1);
+
+  idea by 	se2 se6 se7
+  	se3~0 se5~0
+  	se4~0 se8~0 se9~0 (*1);
+  	
+  mech by 	se3 se5
+  	se2~0 se6~0 se7~0
+  	se4~0 se8~0 se9~0 (*1);
+  	
+  sr by 	se4 se8 se9
+  	se2~0 se6~0 se7~0
+  	se3~0 se5~0 (*1);
+
+  	
+  !se1@.00001;
+  !se1-se9 (s1-s9);
+  !MODEL CONSTRAINT:
+  !s3;
+  !0 < s5;
+
+  Output:
+  modindices;
+  tech4;
+  stdyx;
+
+  SaveData:
+  save = fscores;
+  file = fscores.besem.alt.csv;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+WMQ bESEM
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        1466
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   SE2         SE3         SE4         SE5         SE6         SE7
+   SE8         SE9
+
+Observed auxiliary variables
+   ID          FEMALE      ETHNIC      ELL         DISABILITY  GIFTED
+   GRADE_LEVE  TEST_SCORE  MARK
+
+Continuous latent variables
+
+  EFA factors
+  *1:   GLOB        IDEA        MECH        SR
+
+Variables with special functions
+
+  Cluster variable      T_ID
+
+Estimator                                                    WLSMV
+Rotation                                                    TARGET
+Row standardization                                    CORRELATION
+Type of rotation                                        ORTHOGONAL
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization Specifications for the Exploratory Factor Analysis
+Rotation Algorithm
+  Number of random starts                                       30
+  Maximum number of iterations                             1000000
+  Derivative convergence criterion                       0.100D-04
+Parameterization                                             DELTA
+Link                                                        PROBIT
+
+Input data file(s)
+  raw.8.9.10.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters          39
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              SE2           SE3           SE4           SE5           SE6
+              ________      ________      ________      ________      ________
+ SE2            1.000
+ SE3            1.000         1.000
+ SE4            1.000         1.000         1.000
+ SE5            1.000         1.000         1.000         1.000
+ SE6            1.000         1.000         1.000         1.000         1.000
+ SE7            1.000         1.000         1.000         1.000         1.000
+ SE8            1.000         1.000         1.000         1.000         1.000
+ SE9            1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              SE7           SE8           SE9
+              ________      ________      ________
+ SE7            1.000
+ SE8            1.000         1.000
+ SE9            1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    SE2
+      Category 1    0.018           27.000
+      Category 2    0.136          199.000
+      Category 3    0.471          691.000
+      Category 4    0.374          549.000
+    SE3
+      Category 1    0.014           21.000
+      Category 2    0.108          158.000
+      Category 3    0.396          580.000
+      Category 4    0.482          707.000
+    SE4
+      Category 1    0.079          116.000
+      Category 2    0.304          446.000
+      Category 3    0.411          603.000
+      Category 4    0.205          301.000
+    SE5
+      Category 1    0.030           44.000
+      Category 2    0.130          190.000
+      Category 3    0.415          609.000
+      Category 4    0.425          623.000
+    SE6
+      Category 1    0.054           79.000
+      Category 2    0.214          313.000
+      Category 3    0.430          630.000
+      Category 4    0.303          444.000
+    SE7
+      Category 1    0.031           46.000
+      Category 2    0.172          252.000
+      Category 3    0.422          619.000
+      Category 4    0.374          549.000
+    SE8
+      Category 1    0.160          235.000
+      Category 2    0.330          484.000
+      Category 3    0.372          545.000
+      Category 4    0.138          202.000
+    SE9
+      Category 1    0.127          186.000
+      Category 2    0.357          523.000
+      Category 3    0.374          548.000
+      Category 4    0.143          209.000
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       50
+
+Chi-Square Test of Model Fit
+
+          Value                              0.176*
+          Degrees of Freedom                     2
+          P-Value                           0.9155
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.019
+          Probability RMSEA <= .05           0.997
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.003
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           7676.086
+          Degrees of Freedom                    28
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.001
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.22556235D-04
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ GLOB     BY
+    SE2                0.723      0.038     19.148      0.000
+    SE6                0.750      0.032     23.391      0.000
+    SE7                0.820      0.038     21.558      0.000
+    SE3                0.474      0.046     10.420      0.000
+    SE5                0.326      0.033      9.756      0.000
+    SE4                0.654      0.022     29.172      0.000
+    SE8                0.563      0.032     17.567      0.000
+    SE9                0.690      0.029     23.766      0.000
+
+ IDEA     BY
+    SE2                0.087      0.121      0.722      0.470
+    SE6                0.511      0.259      1.975      0.048
+    SE7                0.179      0.155      1.154      0.248
+    SE3               -0.084      0.077     -1.094      0.274
+    SE5               -0.017      0.069     -0.238      0.812
+    SE4                0.081      0.047      1.706      0.088
+    SE8               -0.025      0.045     -0.551      0.582
+    SE9                0.009      0.042      0.221      0.825
+
+ MECH     BY
+    SE3                0.375      0.110      3.403      0.001
+    SE5                0.724      0.192      3.764      0.000
+    SE2                0.154      0.056      2.735      0.006
+    SE6               -0.099      0.031     -3.133      0.002
+    SE7               -0.036      0.033     -1.084      0.278
+    SE4               -0.013      0.024     -0.541      0.588
+    SE8                0.036      0.021      1.692      0.091
+    SE9               -0.028      0.029     -0.963      0.336
+
+ SR       BY
+    SE4                0.439      0.036     12.086      0.000
+    SE8                0.623      0.043     14.492      0.000
+    SE9                0.336      0.038      8.842      0.000
+    SE2               -0.063      0.039     -1.611      0.107
+    SE6                0.047      0.021      2.260      0.024
+    SE7                0.025      0.038      0.655      0.512
+    SE3               -0.045      0.062     -0.725      0.468
+    SE5                0.033      0.026      1.267      0.205
+
+ IDEA     WITH
+    GLOB               0.000      0.000    999.000    999.000
+
+ MECH     WITH
+    GLOB               0.000      0.000    999.000    999.000
+    IDEA               0.000      0.000    999.000    999.000
+
+ SR       WITH
+    GLOB               0.000      0.000    999.000    999.000
+    IDEA               0.000      0.000    999.000    999.000
+    MECH               0.000      0.000    999.000    999.000
+
+ Thresholds
+    SE2$1             -2.088      0.086    -24.383      0.000
+    SE2$2             -1.019      0.050    -20.547      0.000
+    SE2$3              0.320      0.048      6.626      0.000
+    SE3$1             -2.188      0.096    -22.682      0.000
+    SE3$2             -1.165      0.067    -17.255      0.000
+    SE3$3              0.044      0.056      0.796      0.426
+    SE4$1             -1.411      0.037    -38.166      0.000
+    SE4$2             -0.297      0.035     -8.571      0.000
+    SE4$3              0.823      0.048     17.279      0.000
+    SE5$1             -1.881      0.093    -20.150      0.000
+    SE5$2             -0.996      0.048    -20.614      0.000
+    SE5$3              0.189      0.045      4.165      0.000
+    SE6$1             -1.608      0.063    -25.621      0.000
+    SE6$2             -0.621      0.039    -16.017      0.000
+    SE6$3              0.516      0.042     12.201      0.000
+    SE7$1             -1.861      0.077    -24.245      0.000
+    SE7$2             -0.830      0.047    -17.653      0.000
+    SE7$3              0.320      0.043      7.414      0.000
+    SE8$1             -0.993      0.042    -23.486      0.000
+    SE8$2             -0.024      0.032     -0.746      0.456
+    SE8$3              1.090      0.051     21.240      0.000
+    SE9$1             -1.141      0.043    -26.810      0.000
+    SE9$2             -0.041      0.043     -0.952      0.341
+    SE9$3              1.069      0.050     21.485      0.000
+
+ Variances
+    GLOB               1.000      0.000    999.000    999.000
+    IDEA               1.000      0.000    999.000    999.000
+    MECH               1.000      0.000    999.000    999.000
+    SR                 1.000      0.000    999.000    999.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ GLOB     BY
+    SE2                0.723      0.038     19.148      0.000
+    SE6                0.750      0.032     23.391      0.000
+    SE7                0.820      0.038     21.558      0.000
+    SE3                0.474      0.046     10.420      0.000
+    SE5                0.326      0.033      9.756      0.000
+    SE4                0.654      0.022     29.172      0.000
+    SE8                0.563      0.032     17.567      0.000
+    SE9                0.690      0.029     23.766      0.000
+
+ IDEA     BY
+    SE2                0.087      0.121      0.722      0.470
+    SE6                0.511      0.259      1.975      0.048
+    SE7                0.179      0.155      1.154      0.248
+    SE3               -0.084      0.077     -1.094      0.274
+    SE5               -0.017      0.069     -0.238      0.812
+    SE4                0.081      0.047      1.706      0.088
+    SE8               -0.025      0.045     -0.551      0.582
+    SE9                0.009      0.042      0.221      0.825
+
+ MECH     BY
+    SE3                0.375      0.110      3.403      0.001
+    SE5                0.724      0.192      3.764      0.000
+    SE2                0.154      0.056      2.735      0.006
+    SE6               -0.099      0.031     -3.133      0.002
+    SE7               -0.036      0.033     -1.084      0.278
+    SE4               -0.013      0.024     -0.541      0.588
+    SE8                0.036      0.021      1.692      0.091
+    SE9               -0.028      0.029     -0.963      0.336
+
+ SR       BY
+    SE4                0.439      0.036     12.086      0.000
+    SE8                0.623      0.043     14.492      0.000
+    SE9                0.336      0.038      8.842      0.000
+    SE2               -0.063      0.039     -1.611      0.107
+    SE6                0.047      0.021      2.260      0.024
+    SE7                0.025      0.038      0.655      0.512
+    SE3               -0.045      0.062     -0.725      0.468
+    SE5                0.033      0.026      1.267      0.205
+
+ IDEA     WITH
+    GLOB               0.000      0.000    999.000    999.000
+
+ MECH     WITH
+    GLOB               0.000      0.000    999.000    999.000
+    IDEA               0.000      0.000    999.000    999.000
+
+ SR       WITH
+    GLOB               0.000      0.000    999.000    999.000
+    IDEA               0.000      0.000    999.000    999.000
+    MECH               0.000      0.000    999.000    999.000
+
+ Thresholds
+    SE2$1             -2.088      0.086    -24.383      0.000
+    SE2$2             -1.019      0.050    -20.547      0.000
+    SE2$3              0.320      0.048      6.626      0.000
+    SE3$1             -2.188      0.096    -22.682      0.000
+    SE3$2             -1.165      0.067    -17.255      0.000
+    SE3$3              0.044      0.056      0.796      0.426
+    SE4$1             -1.411      0.037    -38.166      0.000
+    SE4$2             -0.297      0.035     -8.571      0.000
+    SE4$3              0.823      0.048     17.279      0.000
+    SE5$1             -1.881      0.093    -20.150      0.000
+    SE5$2             -0.996      0.048    -20.614      0.000
+    SE5$3              0.189      0.045      4.165      0.000
+    SE6$1             -1.608      0.063    -25.621      0.000
+    SE6$2             -0.621      0.039    -16.017      0.000
+    SE6$3              0.516      0.042     12.201      0.000
+    SE7$1             -1.861      0.077    -24.245      0.000
+    SE7$2             -0.830      0.047    -17.653      0.000
+    SE7$3              0.320      0.043      7.414      0.000
+    SE8$1             -0.993      0.042    -23.486      0.000
+    SE8$2             -0.024      0.032     -0.746      0.456
+    SE8$3              1.090      0.051     21.240      0.000
+    SE9$1             -1.141      0.043    -26.810      0.000
+    SE9$2             -0.041      0.043     -0.952      0.341
+    SE9$3              1.069      0.050     21.485      0.000
+
+ Variances
+    GLOB               1.000      0.000    999.000    999.000
+    IDEA               1.000      0.000    999.000    999.000
+    MECH               1.000      0.000    999.000    999.000
+    SR                 1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed   Residual
+    Variable        Estimate       S.E.  Est./S.E.    P-Value    Variance
+
+    SE2                0.558      0.038     14.646      0.000      0.442
+    SE3                0.375      0.065      5.758      0.000      0.625
+    SE4                0.627      0.027     23.038      0.000      0.373
+    SE5                0.633      0.279      2.271      0.023      0.367
+    SE6                0.836      0.272      3.068      0.002      0.164
+    SE7                0.706      0.038     18.685      0.000      0.294
+    SE8                0.706      0.039     18.079      0.000      0.294
+    SE9                0.589      0.024     24.882      0.000      0.411
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.766E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+MODEL MODIFICATION INDICES
+
+NOTE:  Modification indices for direct effects of observed dependent variables
+regressed on covariates and residual covariances among observed dependent
+variables may not be included.  To include these, request MODINDICES (ALL).
+
+Minimum M.I. value for printing the modification index    10.000
+
+                                   M.I.     E.P.C.  Std E.P.C.  StdYX E.P.C.
+
+No modification indices above the minimum value.
+
+
+
+TECHNICAL 4 OUTPUT
+
+
+     ESTIMATES DERIVED FROM THE MODEL
+
+
+           ESTIMATED MEANS FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           ESTIMATED COVARIANCE MATRIX FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB           1.000
+ IDEA           0.000         1.000
+ MECH           0.000         0.000         1.000
+ SR             0.000         0.000         0.000         1.000
+
+
+           ESTIMATED CORRELATION MATRIX FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB           1.000
+ IDEA           0.000         1.000
+ MECH           0.000         0.000         1.000
+ SR             0.000         0.000         0.000         1.000
+
+
+     ESTIMATES DERIVED FROM THE MODEL
+
+
+           S.E. FOR ESTIMATED MEANS FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           EST./S.E. FOR ESTIMATED MEANS FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           TWO-TAILED P-VALUE FOR ESTIMATED MEANS FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+                1.000         1.000         1.000         1.000
+
+
+           S.E. FOR ESTIMATED COVARIANCE MATRIX FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB           0.000
+ IDEA           0.000         0.000
+ MECH           0.000         0.000         0.000
+ SR             0.000         0.000         0.000         0.000
+
+
+           EST./S.E. FOR ESTIMATED COVARIANCE MATRIX FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB     ***********
+ IDEA           0.000   ***********
+ MECH           0.000         0.000   ***********
+ SR             0.000         0.000         0.000   ***********
+
+
+           TWO-TAILED P-VALUE FOR ESTIMATED COVARIANCE MATRIX FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB           0.000
+ IDEA           1.000         0.000
+ MECH           1.000         1.000         0.000
+ SR             1.000         1.000         1.000         0.000
+
+
+           S.E. FOR ESTIMATED CORRELATION MATRIX FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB           0.000
+ IDEA           0.000         0.000
+ MECH           0.000         0.000         0.000
+ SR             0.000         0.000         0.000         0.000
+
+
+           EST./S.E. FOR ESTIMATED CORRELATION MATRIX FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB         999.000
+ IDEA           0.000       999.000
+ MECH           0.000         0.000       999.000
+ SR             0.000         0.000         0.000       999.000
+
+
+           TWO-TAILED P-VALUE FOR ESTIMATED CORRELATION MATRIX FOR THE LATENT VARIABLES
+              GLOB          IDEA          MECH          SR
+              ________      ________      ________      ________
+ GLOB           0.000
+ IDEA           1.000         0.000
+ MECH           1.000         1.000         0.000
+ SR             1.000         1.000         1.000         0.000
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              GLOB          GLOB_SE       IDEA          IDEA_SE       MECH
+              ________      ________      ________      ________      ________
+               -0.017         0.453        -0.017         0.821        -0.022
+
+
+           Means
+              MECH_SE       SR            SR_SE
+              ________      ________      ________
+                0.703         0.011         0.708
+
+
+           Covariances
+              GLOB          GLOB_SE       IDEA          IDEA_SE       MECH
+              ________      ________      ________      ________      ________
+ GLOB           0.749
+ GLOB_SE        0.023         0.001
+ IDEA           0.133         0.004         0.290
+ IDEA_SE        0.019         0.001         0.005         0.001
+ MECH           0.057         0.003        -0.089         0.001         0.450
+ MECH_SE        0.020         0.001         0.000         0.001         0.020
+ SR             0.142         0.006        -0.088         0.005        -0.036
+ SR_SE          0.009         0.001         0.002         0.001         0.001
+
+
+           Covariances
+              MECH_SE       SR            SR_SE
+              ________      ________      ________
+ MECH_SE        0.002
+ SR             0.003         0.472
+ SR_SE          0.001         0.002         0.001
+
+
+           Correlations
+              GLOB          GLOB_SE       IDEA          IDEA_SE       MECH
+              ________      ________      ________      ________      ________
+ GLOB           1.000
+ GLOB_SE        0.707         1.000
+ IDEA           0.286         0.174         1.000
+ IDEA_SE        0.666         0.944         0.252         1.000
+ MECH           0.098         0.119        -0.246         0.033         1.000
+ MECH_SE        0.549         0.619        -0.018         0.500         0.712
+ SR             0.239         0.216        -0.237         0.228        -0.079
+ SR_SE          0.382         0.819         0.111         0.757         0.073
+
+
+           Correlations
+              MECH_SE       SR            SR_SE
+              ________      ________      ________
+ MECH_SE        1.000
+ SR             0.105         1.000
+ SR_SE          0.469         0.103         1.000
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    fscores.besem.alt.csv
+
+  Order and format of variables
+
+    SE2            F10.3
+    SE3            F10.3
+    SE4            F10.3
+    SE5            F10.3
+    SE6            F10.3
+    SE7            F10.3
+    SE8            F10.3
+    SE9            F10.3
+    ID             F10.3
+    FEMALE         F10.3
+    ETHNIC         F10.3
+    ELL            F10.3
+    DISABILI       F10.3
+    GIFTED         F10.3
+    GRADE_LE       F10.3
+    TEST_SCO       F10.3
+    MARK           F10.3
+    GLOB           F10.3
+    GLOB_SE        F10.3
+    IDEA           F10.3
+    IDEA_SE        F10.3
+    MECH           F10.3
+    MECH_SE        F10.3
+    SR             F10.3
+    SR_SE          F10.3
+    T_ID           I6
+
+  Save file format
+    25F10.3 I6
+
+  Save file record length    10000
+
+
+     Beginning Time:  22:32:16
+        Ending Time:  22:32:17
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen
