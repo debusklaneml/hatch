@@ -1,0 +1,144 @@
+---
+title: "bESEM - Validate - LPA"
+author: "MLDL"
+date: "2019"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo = FALSE, message=FALSE, warning = FALSE}
+library(tidyverse)
+library(MplusAutomation)
+```
+
+```{r, echo = FALSE, message=FALSE,results=FALSE}
+validate.besem.rmd <- readModels("/Users/morganldebusk-lane/Dropbox/Hatch/Analyses/LPA/Enumeration/bESEM/Validate/Rmd")
+```
+
+```{r, include = FALSE}
+library(plyr)
+justSummaries <- do.call("rbind.fill", sapply(validate.besem.rmd, "[", "summaries")) 
+detach("package:plyr", unload=TRUE)
+```
+
+#Overall Fit of the Models
+```{r echo = FALSE, results = TRUE}
+library(dplyr)
+justSummaries %>% 
+  select(Parameters, LL, AIC, BIC,Entropy) %>%
+  rename(P = Parameters, Entp = Entropy)
+  
+```
+
+##Plot AIC
+
+```{r echo = FALSE, message=FALSE, results=TRUE}
+justSummaries %>% 
+  arrange(Parameters) %>%
+  mutate(profiles = 1:n()) %>%
+  ggplot(aes(profiles, AIC)) + 
+  geom_line()
+```
+
+##Plot BIC
+
+```{r echo = FALSE, message=FALSE, results=TRUE}
+justSummaries %>% 
+  arrange(Parameters) %>%
+  mutate(profiles = 1:n()) %>%
+  ggplot(aes(profiles, BIC)) + 
+  geom_line()
+```
+
+
+```{r echo = FALSE, message=FALSE, results=FALSE}
+
+c4 <- validate.besem.rmd$X4.besem.validative.free.LPA.out$parameters$unstandardized
+c5 <- validate.besem.rmd$X5.besem.validate.free.LPA.out$parameters$unstandardized
+c6 <- validate.besem.rmd$X6.besem.validative.free.LPA.out$parameters$unstandardized
+c4size <- validate.besem.rmd$X4.besem.validative.free.LPA.out$class_counts$mostLikely
+c5size <- validate.besem.rmd$X5.besem.validate.free.LPA.out$class_counts$mostLikely
+c6size <- validate.besem.rmd$X6.besem.validative.free.LPA.out$class_counts$mostLikely
+
+```
+
+#Means Plots 
+
+##4 Profiles
+
+```{r echo = FALSE, message=FALSE, results=TRUE}
+c4 %>% 
+  filter(paramHeader == "Means") %>% 
+  filter(LatentClass != "Categorical.Latent.Variables") %>% 
+  select(LatentClass, param, est, se, pval)
+c4size
+```
+
+```{r echo = FALSE, message=FALSE, results=TRUE}
+c4 %>% 
+  filter(paramHeader == "Means") %>% 
+  filter(LatentClass != "Categorical.Latent.Variables") %>% 
+  ggplot(aes(LatentClass, est, fill = param)) +
+  geom_col(position = "dodge") +
+labs(y = "Scores",
+       x = "Latent Class") +
+  expand_limits(y = c(-3, 3))
+```
+
+##5 Profiles
+
+```{r echo = FALSE, message=FALSE, results=TRUE}
+c5 %>%
+  filter(paramHeader == "Means") %>% 
+  filter(LatentClass != "Categorical.Latent.Variables") %>% 
+  select(LatentClass, param, est, se, pval)
+c5size
+```
+
+```{r echo = FALSE, message=FALSE, results=TRUE}
+c5 %>%
+  filter(paramHeader == "Means") %>%
+  filter(LatentClass != "Categorical.Latent.Variables") %>%
+  ggplot(aes(LatentClass, est, fill = param)) +
+  geom_col(position = "dodge") +
+labs(y = "Scores",
+       x = "Latent Class") +
+  expand_limits(y = c(-3, 3))
+```
+
+##6 Profiles
+
+```{r echo = FALSE, message=FALSE, results=TRUE}
+c6 %>%
+  filter(paramHeader == "Means") %>%
+  filter(LatentClass != "Categorical.Latent.Variables") %>%
+  select(LatentClass, param, est, se, pval)
+c6size
+```
+
+```{r echo = FALSE, message=FALSE, results=TRUE}
+c6 %>%
+  filter(paramHeader == "Means") %>%
+  filter(LatentClass != "Categorical.Latent.Variables") %>%
+  ggplot(aes(LatentClass, est, fill = param)) +
+  geom_col(position = "dodge") +
+labs(y = "Scores",
+       x = "Latent Class") +
+  expand_limits(y = c(-3, 3))
+```
+
+
+
+
+
+
+
+
+
+
+
