@@ -46,4 +46,5 @@ RQ4c: Do the profiles exhibit predictive validity?
 
 All Applicable R code can be found [HERE](https://github.com/debusklaneml/hatch/tree/master/Rstats)
 
+All MplusAutomation iteration text files can be found [HERE](https://github.com/debusklaneml/hatch/tree/master/Rstats/MplusAutomation.Code)
 
