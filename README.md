@@ -3,6 +3,8 @@
 
 This repository will be used to store and present all applicable syntax for this project!
 
+To view the final bESEM LPA model, please go [HERE](https://debusklaneml.github.io/bESEM.alt.final.html)
+
 ## Folders & Descriptions
 Power Analyses
 
